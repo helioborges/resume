@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  about: MyText
+  looking: MyText
+  birthday: 2022-12-07
+  picture: MyString
+
+two:
+  name: MyString
+  description: MyText
+  about: MyText
+  looking: MyText
+  birthday: 2022-12-07
+  picture: MyString

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Resume</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta content="Helio Borges's Resume" name="description"/>
+  <meta content="Helio Borges" name="author"/>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "headline", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "icons", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "magnific-popup", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+
+</head>
+
+<body style="padding: 7px">
+
+<%= render 'layouts/navbar' %>
+
+<div id="alert">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+</div>
+
+
+
+<%= yield %>
+
+
+
+</body>
+
+
+
+
+<%= javascript_include_tag "jquery.min.js" %>
+<%= javascript_include_tag "ripple/jquery.ripples.js" %>
+<%= javascript_include_tag "animated/headline.js" %>
+<%= javascript_include_tag "counter/jquery.counterup.min.js" %>
+<%= javascript_include_tag "counter/waypoints.min.js" %>
+<%= javascript_include_tag "filter/isotope.pkgd.min.js" %>
+<%= javascript_include_tag "filter/masonry.pkgd.min.js" %>
+<%= javascript_include_tag "filter/jquery.magnific-popup.min.js" %>
+
+<!-- App js -->
+<%= javascript_include_tag "app.js" %>
+
+</html>

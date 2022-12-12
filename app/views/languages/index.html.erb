@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Languages</h1>
+
+<table width="100%" class="table table-striped table-bordered table-hover table-sm paleBlueRows">
+  <thead class="">
+  <tr>
+    <th scope='col'>Name</th>
+    <th scope='col'>Icon</th>
+    <th scope='col'>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @languages.each do |language| %>
+    <tr>
+      <%= render language %>
+      <td>
+        <%= link_to "Show this language", language %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+<%= link_to "New language", new_language_path %>

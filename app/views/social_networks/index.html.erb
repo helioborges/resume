@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Social networks</h1>
+
+<table width="100%" class="table table-striped table-bordered table-hover table-sm paleBlueRows">
+  <thead class="">
+  <tr>
+    <th scope='col'>Name</th>
+    <th scope='col'>Icon</th>
+    <th scope='col'>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @social_networks.each do |social_network| %>
+    <tr>
+      <%= render social_network %>
+      <td>
+        <%= link_to "Show this social network", social_network %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+<%= link_to "New social network", new_social_network_path %>
