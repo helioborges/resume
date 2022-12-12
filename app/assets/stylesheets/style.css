@@ -908,8 +908,8 @@ a:hover, a:active, a:focus {
   height: 3px;
   width: 80px;
   position: absolute;
-  top: 32px;
-  left: 16px;
+  top: 59px;
+  left: 28px;
   border: 1px dotted #f1646c;
   border-radius: 63px;
 }
@@ -927,11 +927,19 @@ a:hover, a:active, a:focus {
   padding: 14px 0;
 }
 
+.navbar a:hover{
+  color: #0a58ca;
+}
+
 .navbar-brand {
-  color: #ffffff;
+  color: #333333;
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 500;
+}
+
+.navbar-brand:hover {
+  color: #0a58ca;
 }
 
 .navbar-brand i {
@@ -1112,6 +1120,7 @@ a:hover, a:active, a:focus {
 .container-filter li a:hover {
   color: #4d79f6 !important;
 }
+
 
 .item-box {
   position: relative;

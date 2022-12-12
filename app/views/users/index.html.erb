@@ -1,0 +1,29 @@
+<h1>Users List</h1>
+<br>
+
+<table width="100%" class="table table-striped table-bordered table-hover table-sm paleBlueRows">
+  <thead class="">
+  <tr>
+    <th scope='col'>Name</th>
+    <th scope='col'>E-mail</th>
+    <th scope='col'>Created</th>
+    <th scope='col'>Last Login</th>
+    <th scope='col'>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% for user in @users do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td>
+        <%= link_to 'Edit', edit_user_path(user) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>

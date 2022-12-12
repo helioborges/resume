@@ -6,8 +6,8 @@
  */
 @font-face {
   font-family: 'unicons';
-  src: url("../fonts/unicons.eot");
-  src: url("../fonts/unicons.eot") format("embedded-opentype"), url("../fonts/unicons.woff2") format("woff2"), url("../fonts/unicons.woff") format("woff"), url("../fonts/unicons.ttf") format("truetype"), url("../fonts/unicons.svg") format("svg");
+  src: url("unicons.eot");
+  src: url("unicons.eot") format("embedded-opentype"), url("unicons.woff2") format("woff2"), url("unicons.woff") format("woff"), url("unicons.ttf") format("truetype"), url("unicons.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }

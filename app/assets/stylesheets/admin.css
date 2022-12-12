@@ -1,0 +1,76 @@
+table.paleBlueRows {
+    font-family: "Times New Roman", Times, serif;
+    border: 1px solid #FFFFFF;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table.paleBlueRows td, table.paleBlueRows th {
+    border: 1px solid #FFFFFF;
+    padding: 2px 1px;
+}
+
+table.paleBlueRows tbody td {
+    font-size: 13px;
+}
+
+table.paleBlueRows tr:nth-child(even) {
+    background: #D0E4F5;
+}
+
+table.paleBlueRows thead {
+    background: #0B6FA4;
+    border-bottom: 5px solid #FFFFFF;
+}
+
+table.paleBlueRows thead th {
+    font-size: 17px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #FFFFFF;
+}
+
+table.paleBlueRows thead th:first-child {
+    border-left: none;
+}
+
+table.paleBlueRows tfoot {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    background: #D0E4F5;
+    border-top: 3px solid #444444;
+}
+
+table.paleBlueRows tfoot td {
+    font-size: 14px;
+}
+
+.myButton {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 12px;
+    padding: 5px;
+    border-radius: 3px;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-image: radial-gradient(at center center, rgb(28, 110, 164) 0%, rgb(20, 78, 117) 100%);
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border: 1px solid rgb(28, 110, 164);
+    display: inline-block;
+}
+
+.myButton:hover {
+    background: #1C6EA4;
+}
+
+.myButton:active {
+    background: #144E75;
+}
