@@ -9,4 +9,7 @@ class ResumeInfo < ApplicationRecord
     errors.add(:birthday, :invalid)
   end
 
+  has_many :resume_languages
+  has_many :resume_social_networks
+
 end

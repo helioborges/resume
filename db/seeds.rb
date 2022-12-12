@@ -4,16 +4,22 @@ resume.name = 'Your Full Name'
 resume.description = 'Your Description'
 resume.about = 'About yourself'
 resume.looking = 'What are you looking for'
-resume.birthday = Date.new(1987,7,11)
+resume.birthday = Date.new(1987, 7, 11)
 resume.picture = 'users/avatar.jpg'
 resume.save
 
 #POPULATING THE LANGUAGES
 Language.delete_all
-language = Language.create([{name: 'Brazilian Portuguese', icon: '🇧🇷' }])
-language = Language.create([{name: 'Portuguese', icon: '🇵🇹' }])
-language = Language.create([{name: 'English', icon: '🇪🇸' }])
-language = Language.create([{name: 'Spanish', icon: '🇬🇧' }])
+language = Language.create({ name: 'Brazilian Portuguese', icon: '🇧🇷' })
+ResumeLanguage.create({ language_id: language.id, level: 5, resume_info_id: resume.id })
+
+language = Language.create({ name: 'Portuguese', icon: '🇵🇹' })
+
+language = Language.create({ name: 'English', icon: '🇪🇸' })
+ResumeLanguage.create({ language_id: language.id, level: 5, resume_info_id: resume.id  })
+
+language = Language.create({ name: 'Spanish', icon: '🇬🇧' })
+ResumeLanguage.create({ language_id: language.id, level: 2, resume_info_id: resume.id  })
 
 #if you want all languages, just uncomment this code, there are no flag icons for them:
 # Language.delete_all
