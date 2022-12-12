@@ -47,6 +47,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem "letter_opener", group: :development
 gem "devise", "~> 4.8"
+gem "font-awesome-sass", "~> 6.2.1"
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

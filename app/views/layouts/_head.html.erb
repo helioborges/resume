@@ -5,7 +5,7 @@
         <div class="col-sm-6 col-print-6 align-self-center mb-3 mb-lg-0">
           <div class="zoo-profile-main">
             <div class="zoo-profile-main-pic">
-              <%= image_tag @resume_info.picture , class: "rounded-circle" %>
+              <%= image_tag @resume_info.picture, class: "rounded-circle" %>
             </div>
 
             <div class="zoo-profile_user-detail">
@@ -28,24 +28,17 @@
             <!-- <li class="mt-2"><i class="uil uil-location-point  mt-2 mr-2"></i> <b>Location</b> : USA</li> -->
           </ul><!--end personal-detail-->
 
+
           <ul class="list-inline social-icon mb-0">
-            <li class="list-inline-item">
-              <a href="#" class="">
-                <i class="uil uil-facebook-f"></i>
-              </a>
-            </li>
 
-            <li class="list-inline-item">
-              <a href="#" class="">
-                <i class="uil uil-twitter"></i>
-              </a>
-            </li>
+            <% for resume_social_networks in @resume_info.resume_social_networks do %>
+              <li class="list-inline-item">
+                <a href="#" class="">
+                  <%= icon('fa-brands', "#{resume_social_networks.social_network.icon}") %>
+                </a>
+              </li>
+            <% end %>
 
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="uil uil-instagram"></i>
-              </a>
-            </li>
           </ul><!--end social-icon-->
 
         </div><!--end col-->

@@ -1015,6 +1015,16 @@ a:hover, a:active, a:focus {
   font-size: 13px;
 }
 
+.percent-tooltip {
+  position: absolute;
+  right: -15px;
+  top: -30px;
+  margin-bottom: 10px;
+  color: #848db3;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
 .bg-funfact {
   background-color: #171f33;
 }

@@ -3,40 +3,65 @@
     <div class="row">
 
       <div class="col-12">
-        <h4 class="header-title mb-3">About me !</h4>
+        <h4 class="header-title mb-3">About me!</h4>
       </div><!--end col-->
+
 
       <div class="col-sm-6 col-print-6">
         <h4 class="text-primary font-weight-bold">Hi, I'm <%= @resume_info.name %></h4>
 
-        <p><%= @resume_info.about %>
+        <p>
+          <%= @resume_info.about %>
         </p>
 
         <button type="button" class="btn btn-sm btn-soft-primary">Download CV</button>
       </div><!--end col-->
 
-      <div class="col-sm-5 col-print-5 offset-lg-1 align-self-center">
+
+      <span class="col-sm-5 col-print-5 offset-lg-1 align-self-center">
         <p>
           <span class="personal-detail-title">Name</span>
-          <span class="personal-detail-info">Rosa Dodson</span>
+          <span class="personal-detail-info"><%= @resume_info.name %></span>
         </p>
+
         <p>
           <span class="personal-detail-title">Date of birth</span>
-          <span class="personal-detail-info">06 june 1989</span>
+          <span class="personal-detail-info"><%= @resume_info.birthday.to_date.to_fs(:long) %></span>
         </p>
+
+
         <p>
-          <span class="personal-detail-title">Spoken Langages</span>
-          <span class="personal-detail-info">English - French - German</span>
-        </p>
-        <p>
-          <span class="personal-detail-title">Nationality</span>
-          <span class="personal-detail-info">USA</span>
-        </p>
-        <p>
-          <span class="personal-detail-title">Interest</span>
-          <span class="personal-detail-info">Music, Reading, journey</span>
-        </p>
-      </div><!--end col-->
-    </div><!--end row-->
-  </div><!--end container-->
+          <span class="personal-detail-title">Spoken Langages:</span>
+          <% for resume_language in @resume_info.resume_languages do %>
+            <% language_level = resume_language.level.to_i * 20 %>
+
+            <span class="personal-detail-info">
+              <%= resume_language.language.icon %> <%= resume_language.language.name %>
+            </span>
+
+            <div class="skills">
+              <div class="skill-box">
+                <div class="progress-line">
+                                        <span data-percent="95" style="width: <%=language_level %>%;">
+
+                                        </span>
+                  <span class="percent-tooltip"><%= language_level %>%</span>
+                </div>
+              </div><!--end skill-box-->
+            </div>
+
+          <% end %>
+          </p>
+
+
+
+          <!--        <p>-->
+          <!--          <span class="personal-detail-title">Interest</span>-->
+          <!--          <span class="personal-detail-info">Music, Reading, journey</span>-->
+          <!--        </p>-->
+          </span>
+
+    </div><!--end col-->
+  </div><!--end row-->
+
 </section><!--end section-->
