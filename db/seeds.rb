@@ -74,5 +74,6 @@ social_network = SocialNetwork.create({ name: 'Vimeo', icon: 'vimeo-v' })
 # social_network = SocialNetwork.create({ name: 'Weibo', icon: 'weibo' })
 # social_network = SocialNetwork.create({ name: 'Vk', icon: 'vk' })
 
-
+resume_email = ResumeEmail.create(:email => 'youremail@email.com', email_type: 'Personal', show: true, resume_info_id: resume.id)
+resume_phone = ResumePhone.create(:phone_number => '+55 62 99999-9999', phone_type: 'Personal', show: true, resume_info_id: resume.id, whatsapp: true)
 

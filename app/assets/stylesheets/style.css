@@ -772,6 +772,87 @@ button.bg-white:focus, button.bg-white:hover {
   background-color: #2b55cc !important;
 }
 
+.bg-facebook {
+background-color: #1877f2 !important;
+}
+
+.bg-twitter {
+  background-color: #1da1f2 !important;
+}
+
+.bg-instagram {
+  background-color: #8a3ab9 !important;
+}
+
+.bg-youtube {
+  background-color: #ff0000 !important;
+}
+
+.bg-linkedin {
+  background-color: #0a66c2 !important;
+}
+
+.bg-reddit {
+  background-color: #ff4500 !important;
+}
+
+.bg-tiktok {
+  background-color: #ee1d52 !important;
+}
+
+.bg-snapchat {
+  background-color: #fffc00 !important;
+}
+
+.bg-pinterest {
+  background-color: #bd081c !important;
+}
+
+.bg-vimeo {
+  background-color: #1ab7ea !important;
+}
+
+.bg-twitch {
+  background-color: #9146ff !important;
+}
+
+.bg-whatsapp {
+  background-color: #25d366 !important;
+}
+
+.bg-github {
+  background-color: #24292f !important;
+  /*border: 1px solid #fff !important;*/
+}
+
+.bg-vk {
+  background-color: #45668e !important;
+}
+
+.bg-stack-overflow {
+  background-color: #f48024 !important;
+}
+
+.bg-spotify {
+  background-color: #1ed760 !important;
+}
+
+.bg-telegram {
+  background-color: #0088cc !important;
+}
+
+.bg-icon-ball{
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #333;
+  font-size: 16px;
+  color: #fff;
+}
+
 html {
   position: relative;
   min-height: 100%;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_131966) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_13_192548) do
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.string "icon"
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_131966) do
   create_table "resume_emails", force: :cascade do |t|
     t.string "email"
     t.boolean "show"
-    t.string "type"
+    t.string "email_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resume_info_id", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_131966) do
     t.string "phone_number"
     t.boolean "show"
     t.boolean "whatsapp"
-    t.string "type"
+    t.string "phone_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resume_info_id", null: false

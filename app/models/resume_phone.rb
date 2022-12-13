@@ -1,6 +1,6 @@
 class ResumePhone < ApplicationRecord
 
-  validates_presence_of :phone_number, :resume_info_id, :type
+  validates_presence_of :phone_number, :resume_info_id, :phone_type
 
   def list_types
     ['Work', 'Personal']

@@ -1,4 +1,4 @@
-<section class="section bg-profile" id="profile_ripple" style="background-color: black">
+<section class="section bg-profile" style="background-color: black">
   <div class="zoo-profile">
     <div class="container">
       <div class="row">
@@ -9,34 +9,59 @@
             </div>
 
             <div class="zoo-profile_user-detail">
-              <h5 class="zoo-user-name"><%= @resume_info.name %></h5>
-              <p class="cd-headline loading-bar">
-                <span class="cd-words-wrapper">
-                <b class="is-visible">Ruby on Rails Full Stack Developer</b>
-                  <!-- <b>Angular Developer</b>-->
-                  <!-- <b>React Native Developer</b>-->
-                </span>
-              </p>
+              <h3 class="zoo-user-name"><%= @resume_info.name %></h3>
+              <!--              <p class="cd-headline loading-bar">-->
+              <div class=" ">
+                <p><%= @resume_info.description %> </p>
+                <!-- <b>Angular Developer</b>-->
+                <!-- <b>React Native Developer</b>-->
+              </div>
+              <!--              </p>-->
             </div><!--end zoo-profile_user-detail-->
           </div> <!--end profile-main-pic-->
         </div><!--end col-->
 
+
         <div class="col-sm-4 col-print-4 ml-auto">
+
+          <h3>Contact</h3>
           <ul class="list-unstyled personal-detail">
-            <li><i class="'uil uil-phone-volume mr-2"></i> <b> phone </b>: +91 23456 78910</li>
-            <li class="mt-2"><i class="uil uil-envelope mt-2 mr-2"></i> <b> Email </b> : mannat.theme@gmail.com</li>
+
+            <% for resume_phone in @resume_info.resume_phones do %>
+              <% if resume_phone.show %>
+                <li>
+                  <i class="'uil uil-phone-volume mr-2"></i>
+                  <b> <%= resume_phone.phone_type %></b>: <%= resume_phone.phone_number %>
+                  <%= link_to 'https://api.whatsapp.com/send?l=pt_BR&phone=5562982168122', class: "bg-icon-ball bg-whatsapp" do %>
+                    <%= icon('fa-brands', "whatsapp") %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+
+            <% for resume_email in @resume_info.resume_emails do %>
+              <% if resume_email.show %>
+                <li class="mt-2">
+                  <i class="uil uil-envelope mt-2 mr-2"></i>
+                  <b> <%= resume_email.email_type %> Email </b>:
+                  <%= resume_email.email %>
+                </li>
+              <% end %>
+            <% end %>
             <!-- <li class="mt-2"><i class="uil uil-location-point  mt-2 mr-2"></i> <b>Location</b> : USA</li> -->
           </ul><!--end personal-detail-->
 
 
           <ul class="list-inline social-icon mb-0">
+            <% for resume_social_network in @resume_info.resume_social_networks do %>
+              <% if resume_social_network.show %>
+                <li class="list-inline-item">
+                  <%= link_to resume_social_network.url, class: "bg-icon-ball bg-#{resume_social_network.social_network.icon.downcase}" do %>
+                    <%= icon('fa-brands', "#{resume_social_network.social_network.icon}") %>
+                  <% end %>
 
-            <% for resume_social_networks in @resume_info.resume_social_networks do %>
-              <li class="list-inline-item">
-                <a href="#" class="">
-                  <%= icon('fa-brands', "#{resume_social_networks.social_network.icon}") %>
-                </a>
-              </li>
+                </li>
+              <% end %>
             <% end %>
 
           </ul><!--end social-icon-->
