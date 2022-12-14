@@ -56,8 +56,8 @@
 .btn-primary {
   background-color: #4d79f6;
   border: 1px solid #4d79f6;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(77, 121, 246, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(77, 121, 246, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(77, 121, 246, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(77, 121, 246, 0.5);
 }
 
 .btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover,
@@ -93,8 +93,8 @@ button.bg-primary:focus, button.bg-primary:hover {
 .btn-success {
   background-color: #1ecab8;
   border: 1px solid #1ecab8;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(30, 202, 184, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(30, 202, 184, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(30, 202, 184, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(30, 202, 184, 0.5);
 }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active,
@@ -123,8 +123,8 @@ button.bg-primary:focus, button.bg-primary:hover {
 .btn-info {
   background-color: #9ba7ca;
   border: 1px solid #9ba7ca;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(155, 167, 202, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(155, 167, 202, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(155, 167, 202, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(155, 167, 202, 0.5);
 }
 
 .btn-info:not(:disabled):not(.disabled):active,
@@ -158,8 +158,8 @@ button.bg-primary:focus, button.bg-primary:hover {
 .btn-warning {
   background-color: #f3c74d;
   border: 1px solid #f3c74d;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(243, 199, 77, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(243, 199, 77, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(243, 199, 77, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(243, 199, 77, 0.5);
 }
 
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active,
@@ -186,8 +186,8 @@ button.bg-primary:focus, button.bg-primary:hover {
 .btn-danger {
   background-color: #f1646c;
   border: 1px solid #f1646c;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(241, 100, 108, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(241, 100, 108, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(241, 100, 108, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(241, 100, 108, 0.5);
 }
 
 .btn-danger:not(:disabled):not(.disabled):active,
@@ -214,8 +214,8 @@ button.bg-primary:focus, button.bg-primary:hover {
 .btn-secondary {
   background-color: #4ac7ec;
   border: 1px solid #4ac7ec;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(74, 199, 236, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(74, 199, 236, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(74, 199, 236, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(74, 199, 236, 0.5);
   color: #20294a;
 }
 
@@ -247,8 +247,8 @@ a.bg-secondary:focus, a.bg-secondary:hover, button.bg-secondary:focus, button.bg
   color: #848db3;
   background-color: #f1f5fa;
   border: 1px solid #28365f;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(112, 129, 185, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(112, 129, 185, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(112, 129, 185, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(112, 129, 185, 0.5);
 }
 
 .btn-light:not(:disabled):not(.disabled).active,
@@ -283,8 +283,8 @@ a.bg-secondary:focus, a.bg-secondary:hover, button.bg-secondary:focus, button.bg
 .btn-dark {
   background-color: #1a253f;
   border: 1px solid #1a253f;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(26, 37, 63, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(26, 37, 63, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(26, 37, 63, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(26, 37, 63, 0.5);
   color: #ffffff;
 }
 
@@ -323,8 +323,8 @@ a.bg-secondary:focus, a.bg-secondary:hover, button.bg-secondary:focus, button.bg
   background-color: #ff5da0;
   border: 1px solid #ff5da0;
   color: #ffffff;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(255, 93, 160, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(255, 93, 160, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(255, 93, 160, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(255, 93, 160, 0.5);
 }
 
 .btn-pink:hover, .btn-pink:focus, .btn-pink:active, .btn-pink.active, .btn-pink.focus,
@@ -350,8 +350,8 @@ a.bg-secondary:focus, a.bg-secondary:hover, button.bg-secondary:focus, button.bg
   background-color: #7551e9;
   border: 1px solid #7551e9;
   color: #ffffff;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(117, 81, 233, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(117, 81, 233, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(117, 81, 233, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(117, 81, 233, 0.5);
 }
 
 .btn-purple:hover, .btn-purple:focus, .btn-purple:active, .btn-purple.active, .btn-purple.focus,
@@ -379,8 +379,8 @@ a.bg-secondary:focus, a.bg-secondary:hover, button.bg-secondary:focus, button.bg
 .btn-blue {
   background-color: #2b55cc;
   border: 1px solid #2b55cc;
-  -webkit-box-shadow: 0 2px 6px 0 rgba(43, 85, 204, 0.5);
-          box-shadow: 0 2px 6px 0 rgba(43, 85, 204, 0.5);
+  -webkit-box-shadow: 0 1px 4px 0 rgba(43, 85, 204, 0.5);
+          box-shadow: 0 1px 4px 0 rgba(43, 85, 204, 0.5);
 }
 
 .btn-blue.active, .btn-blue.focus, .btn-blue:active, .btn-blue:focus, .btn-blue:hover,

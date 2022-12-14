@@ -17,6 +17,7 @@ class ResumeInfosController < ApplicationController
 
   # GET /resume_infos/1/edit
   def edit
+    @social_networks= SocialNetwork.all
   end
 
   # POST /resume_infos or /resume_infos.json
@@ -58,13 +59,18 @@ class ResumeInfosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_resume_info
-      @resume_info = ResumeInfo.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def resume_info_params
-      params.require(:resume_info).permit(:name, :description, :about, :looking, :birthday, :picture)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_resume_info
+    @resume_info = ResumeInfo.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def resume_info_params
+    params.require(:resume_info).permit(:name, :description, :about, :looking, :birthday, :picture,
+                                        resume_emails_attributes: [:id, :email, :show, :email_type, :resume_info_id, :_destroy],
+                                        resume_languages_attributes: [:id, :language_id, :level, :resume_info_id, :_destroy],
+                                        resume_phones_attributes: [:id, :phone_number, :show, :phone_type, :whatsapp, :resume_info_id, :_destroy],
+                                        resume_social_networks_attributes: [:id, :url, :show, :social_network_id, :resume_info_id, :_destroy])
+  end
 end

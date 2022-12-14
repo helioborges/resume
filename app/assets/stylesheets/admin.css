@@ -74,3 +74,49 @@ table.paleBlueRows tfoot td {
 .myButton:active {
     background: #144E75;
 }
+
+.form-control {
+    color: #ffffff;
+    background-color: #232b40;
+
+}
+
+/*.form-check-inline {*/
+/*    display: inline-block;*/
+/*    color: red;*/
+/*    width: 100% !important;*/
+/*}*/
+
+/*.form-check-inline input {*/
+/*    display: inline-block;*/
+/*    color: blue;*/
+/*    !*width: 100% !important;*!*/
+/*}*/
+
+/*.form-check-inline div {*/
+/*    display: inline-block;*/
+/*    color: green;*/
+/*    !*width: 100% !important;*!*/
+/*    !*width: 100% !important;*!*/
+/*}*/
+
+.form-row .form-group div
+{
+    padding: 3px;
+    /*border: 1px solid red;*/
+}
+
+.form-check .form-check-input {
+    margin-left: 0;
+    margin-right: 3px;
+    float: none;
+}
+
+.form-check{
+    margin-top: 8px;
+    /*border: 1px solid blue;*/
+}
+
+.was-validated .form-control:valid, .form-control.is-valid{
+    background-image: none;
+}

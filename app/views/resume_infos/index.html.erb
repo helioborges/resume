@@ -6,9 +6,10 @@
   <% @resume_infos.each do |resume_info| %>
     <%= render resume_info %>
     <p>
-      <%= link_to "Show this resume info", resume_info %>
+      <%= link_to "Show Your Resume Information", resume_info %> |
+      <%= link_to "Edit Your Resume Information", edit_resume_info_path(resume_info) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New resume info", new_resume_info_path %>
+<%#= link_to "New Your Resume Information", new_resume_info_path %>

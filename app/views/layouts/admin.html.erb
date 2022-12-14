@@ -21,31 +21,26 @@
 
 </head>
 
-<body style="padding: 7px">
+<body style="padding: 10px">
 
 <%= render 'layouts/navbar' %>
+<div class="main-wraper" style="background-color: #1a253f; margin-top: 80px;">
 
-<div id="alert">
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+  <div id="alert">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+  </div>
+
+  <div style="padding: 10px;">
+    <%= yield %>
+  </div>
+
+
 </div>
-
-
-<br>
-<br>
-<br>
-
-<%= yield %>
-
-<br>
-<br>
-<br>
-<br>
-
 
 </body>
 

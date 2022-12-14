@@ -1,17 +1,60 @@
-<%= simple_form_for(@resume_info) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= simple_form_for(@resume_info) do |form| %>
+  <%= form.error_notification %>
+  <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :about, as: :text %>
-    <%= f.input :looking, as: :text %>
-    <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year, order: [:month, :day, :year] %>
-    <%= f.input :picture %>
+    <%= form.input :name %>
+    <%= form.input :description, as: :text %>
+    <%= form.input :about, as: :text %>
+    <%= form.input :looking, as: :text %>
+    <%= form.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year, order: [:month, :day, :year] %>
+    <%= form.input :picture %>
   </div>
 
+  <br>
+  <h4>Your E-mails</h4>
+  <div class="">
+    <%= link_to_add_nested(form, :resume_emails, '#resume-emails', link_classes: 'btn btn-success', link_text: '+ Add E-mail') %> <!-- adds a link to add more items -->
+    <br>
+    <div id='resume-emails' style="padding-top: 10px; width: 100% !important;">
+      <%= form.fields_for :resume_emails do |form_emails| %>
+        <%= render 'resume_email_fields', form: form_emails %>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <h4>Your Phones</h4>
+  <div class="">
+    <%= link_to_add_nested(form, :resume_phones, '#resume-phones', link_classes: 'btn btn-success', link_text: '+ Add Phone') %> <!-- adds a link to add more items -->
+    <br>
+    <div id='resume-phones' style="padding-top: 10px; width: 100% !important;" >
+      <%= form.fields_for :resume_phones do |form_phones| %>
+        <%= render 'resume_phone_fields', form: form_phones %>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <h4>Your Social Networks</h4>
+  <div class="">
+    <%= link_to_add_nested(form, :resume_social_networks, '#resume-social_networks', link_classes: 'btn btn-success', link_text: '+ Add Social Networks') %> <!-- adds a link to add more items -->
+    <br>
+    <div id='resume-social_networks' style="padding-top: 10px; width: 100% !important;" >
+      <%= form.fields_for :resume_social_networks do |form_social_networks| %>
+        <%= render 'resume_social_network_fields', form: form_social_networks %>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= form.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>

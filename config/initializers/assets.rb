@@ -36,3 +36,6 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
 Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap-icons/font")
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
+
+# Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'javascript', 'packs')
+# Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'javascript', 'packs', 'nested-forms')
