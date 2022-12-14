@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Resume App with Devise/Login
 
-Things you may want to cover:
+* Ruby 3.1.1
 
-* Ruby version
+* Rails 7.0.3
 
-* System dependencies
+* Just Clone, bundle install, rake db:migrate , rake db:seed and rails server
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Check seeds.rb to select what stuff you want to initially seed.

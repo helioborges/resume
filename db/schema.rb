@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_13_192548) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_14_112943) do
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.string "icon"
@@ -37,6 +37,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_192548) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.string "time_zone"
+    t.string "schedule"
   end
 
   create_table "resume_languages", force: :cascade do |t|

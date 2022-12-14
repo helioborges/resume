@@ -24,7 +24,7 @@
 
         <div class="col-sm-4 col-print-4 ml-auto">
 
-          <h3>Contact</h3>
+          <h3>Contact Me:</h3>
           <ul class="list-unstyled personal-detail">
 
             <% for resume_phone in @resume_info.resume_phones do %>
@@ -32,7 +32,7 @@
                 <li>
                   <i class="'uil uil-phone-volume mr-2"></i>
                   <b> <%= resume_phone.phone_type %></b>: <%= resume_phone.phone_number %>
-                  <%= link_to 'https://api.whatsapp.com/send?l=pt_BR&phone=5562982168122', class: "bg-icon-ball bg-whatsapp" do %>
+                  <%= link_to "https://api.whatsapp.com/send?l=pt_BR&phone=#{resume_phone.phone_number}", class: "bg-icon-ball-small bg-whatsapp" do %>
                     <%= icon('fa-brands', "whatsapp") %>
                   <% end %>
                 </li>

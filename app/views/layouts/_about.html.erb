@@ -1,28 +1,38 @@
 <section class="section-md">
   <div class="container">
-    <div class="row">
 
-      <div class="col-12">
+    <div class="row" style="border: 0px solid green">
+
+      <div class="col-9" style="border: 0px solid blue">
         <h4 class="header-title mb-3">About me!</h4>
+
+        <div class="col-sm-12 col-print-12">
+          <h4 class="text-primary font-weight-bold">Hi, I'm <%= @resume_info.name %></h4>
+
+          <p>
+            <%= @resume_info.about * 20 %>
+          </p>
+
+          <br>
+
+          <h4 class="text-primary font-weight-bold">I'm looking for:</h4>
+          <p>
+            <%= @resume_info.looking %>
+          </p>
+
+        </div><!--end col-->
+
       </div><!--end col-->
 
 
-      <div class="col-sm-6 col-print-6">
-        <h4 class="text-primary font-weight-bold">Hi, I'm <%= @resume_info.name %></h4>
-
-        <p>
-          <%= @resume_info.about %>
-        </p>
-
-        <button type="button" class="btn btn-sm btn-soft-primary">Download CV</button>
-      </div><!--end col-->
 
 
-      <span class="col-sm-5 col-print-5 offset-lg-1 align-self-center">
-        <p>
-          <span class="personal-detail-title">Name</span>
-          <span class="personal-detail-info"><%= @resume_info.name %></span>
-        </p>
+      <div class="col-3" style="border: 0px solid red">
+<!--      <span class="col-sm-5 col-print-5 offset-lg-1 align-self-center" style="border: 1px solid red">-->
+<!--        <p>-->
+        <!--          <span class="personal-detail-title">Name</span>-->
+        <!--          <span class="personal-detail-info"><%#= @resume_info.name %></span>-->
+        <!--        </p>-->
 
         <p>
           <span class="personal-detail-title">Date of birth</span>
@@ -39,27 +49,48 @@
               <%= resume_language.language.icon %> <%= resume_language.language.name %>
             </span>
 
-            <div class="skills">
-              <div class="skill-box">
-                <div class="progress-line">
-                                        <span data-percent="95" style="width: <%=language_level %>%;">
+            <!--            <div class="skills">-->
+            <!--              <div class="skill-box">-->
+            <!--                <div class="progress-line">-->
+            <!--                                        <span data-percent="95" style="width: <%#=language_level %>%;">-->
 
-                                        </span>
-                  <span class="percent-tooltip"><%= language_level %>%</span>
-                </div>
-              </div><!--end skill-box-->
-            </div>
+            <!--                                        </span>-->
+            <!--                  <span class="percent-tooltip"><%#= language_level %>%</span>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
 
           <% end %>
           </p>
 
-
-
-          <!--        <p>-->
-          <!--          <span class="personal-detail-title">Interest</span>-->
-          <!--          <span class="personal-detail-info">Music, Reading, journey</span>-->
-          <!--        </p>-->
+        <p>
+          <span class="personal-detail-title">Location:</span>
+          <span class="personal-detail-info">
+            <%= @resume_info.location %>
           </span>
+        </p>
+
+        <p>
+          <span class="personal-detail-title">Time Zone:</span>
+          <span class="personal-detail-info">
+            <%= @resume_info.time_zone %>
+          </span>
+        </p>
+
+        <p>
+          <span class="personal-detail-title">Available Hours:</span>
+          <span class="personal-detail-info">
+            <%= @resume_info.schedule %>
+          </span>
+        </p>
+
+        <!--        <p>-->
+        <!--          <span class="personal-detail-title">Interest</span>-->
+        <!--          <span class="personal-detail-info">Music, Reading, journey</span>-->
+        <!--        </p>-->
+
+           <button type="button" class="btn btn-sm btn-soft-primary">Download CV</button>
+<!--          </span>-->
 
     </div><!--end col-->
   </div><!--end row-->

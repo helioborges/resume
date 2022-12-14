@@ -6,6 +6,9 @@ resume.about = 'About yourself'
 resume.looking = 'What are you looking for'
 resume.birthday = Date.new(1987, 7, 11)
 resume.picture = 'users/avatar.jpg'
+resume.location = 'Goiânia / GO - Brazil'
+resume.timezone = 'UTC -3'
+resume.schedule = 'Flexible'
 resume.save
 
 #POPULATING LANGUAGES

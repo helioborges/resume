@@ -1,4 +1,3 @@
-
 <section class="section-md contact-form">
   <div class="container">
     <div class="row">
@@ -12,7 +11,19 @@
           </div>
           <div class="content">
             <h5>Free Call To Me:</h5>
-            <span>(+1) 234-567-8910</span>
+
+            <% for resume_phone in @resume_info.resume_phones do %>
+              <% if resume_phone.show %>
+                <span>
+                  <b> <%= resume_phone.phone_type %></b>: <%= resume_phone.phone_number %>
+                  <%= link_to "https://api.whatsapp.com/send?l=pt_BR&phone=#{resume_phone.phone_number}", class: "bg-icon-ball-small bg-whatsapp" do %>
+                    <%= icon('fa-brands', "whatsapp") %>
+                  <% end %>
+                </span>
+                <br>
+              <% end %>
+            <% end %>
+
           </div>
         </div><!--end contact-info-->
 
@@ -22,41 +33,66 @@
           </div>
           <div class="content">
             <h5>Mail Me:</h5>
-            <span>Your@example.com</span>
+
+            <% for resume_email in @resume_info.resume_emails do %>
+              <% if resume_email.show %>
+                <span>
+                  <b> <%= resume_email.email_type %> Email </b>:
+                  <%= resume_email.email %>
+                </span>
+                <br>
+              <% end %>
+            <% end %>
+
           </div>
         </div><!--end contact-info-->
 
-        <div class="contact-info">
-          <div class="icon">
-            <i class='uil uil-map-marker'></i>
-          </div>
-          <div class="content">
-            <h5>Find Me:</h5>
-            <span>123 Lorem Ipsum, USA</span>
-          </div>
-        </div><!--end contact-info-->
+        <% if @resume_info.location %>
+          <div class="contact-info">
+            <div class="icon">
+              <i class='uil uil-map-marker'></i>
+            </div>
+            <div class="content">
+              <h5>I'm Located in:</h5>
+              <span><%= @resume_info.location %></span>
+            </div>
+          </div><!--end contact-info-->
+
+        <% end %>
+
       </div><!--end col-->
+
+
       <div class="col-sm-8">
         <div class="contact-form">
           <div id="message"></div>
+
           <form method="post" action="php/contact.php" name="contact-form" id="contact-form">
+
             <div class="row">
+
               <div class="form-group col-md-6">
                 <label>Name</label>
                 <input type="text" name="name" class="form-control" id="name">
               </div><!--end col-->
+
               <div class="form-group col-md-6">
                 <label>Email address</label>
                 <input type="email" name="email" class="form-control" id="email">
               </div><!--end col-->
+
               <div class="form-group col-md-12">
                 <label>Message</label>
                 <textarea rows="4" name="message" class="form-control" id="comments"></textarea>
               </div><!--end col-->
+
+              <br>
+
               <div class="form-group col-md-12">
-                <input type="submit" value="Submit now" name="submit" id="submit" class="btn btn-primary px-5 py-2">
+                <input type="submit" value="Send Message" name="submit" id="submit" class="btn btn-primary px-5 py-2">
                 <div id="simple-msg"></div>
               </div><!--end col-->
+
             </div><!--end row-->
           </form><!--end form-->
         </div><!--end contact-form-->
