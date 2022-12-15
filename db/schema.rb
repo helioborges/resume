@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_14_112943) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_15_171916) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.string "icon"
@@ -28,19 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_112943) do
     t.index ["resume_info_id"], name: "index_resume_emails_on_resume_info_id"
   end
 
-  create_table "resume_infos", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.text "about"
-    t.text "looking"
-    t.date "birthday"
-    t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "location"
-    t.string "time_zone"
-    t.string "schedule"
-  end
+# Could not dump table "resume_infos" because of following StandardError
+#   Unknown type 'attachment' for column 'file_cv'
 
   create_table "resume_languages", force: :cascade do |t|
     t.integer "language_id", null: false
@@ -63,16 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_112943) do
     t.index ["resume_info_id"], name: "index_resume_phones_on_resume_info_id"
   end
 
-  create_table "resume_social_networks", force: :cascade do |t|
-    t.string "url"
-    t.boolean "show"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "social_network_id", null: false
-    t.integer "resume_info_id", null: false
-    t.index ["resume_info_id"], name: "index_resume_social_networks_on_resume_info_id"
-    t.index ["social_network_id"], name: "index_resume_social_networks_on_social_network_id"
-  end
+# Could not dump table "resume_social_networks" because of following StandardError
+#   Unknown type 'attachment' for column 'picture'
 
   create_table "social_networks", force: :cascade do |t|
     t.string "name"
@@ -100,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_112943) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "resume_emails", "resume_infos"
   add_foreign_key "resume_languages", "languages"
   add_foreign_key "resume_languages", "resume_infos"

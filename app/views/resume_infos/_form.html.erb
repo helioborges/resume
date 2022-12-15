@@ -8,10 +8,76 @@
     <%= form.input :about, as: :text %>
     <%= form.input :looking, as: :text %>
     <%= form.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year, order: [:month, :day, :year] %>
-    <%= form.input :picture %>
+
+    <br>
+
+
+
+
+
+    <% if @resume_info&.picture&.attached? %>
+      <div id='picture_div' class="form-row" style="display: flex; padding: 3px;">
+        <div class="form-group col-md-2" >
+          <%= form.label 'Your Uploaded Picture: ' %>
+        </div>
+
+        <div class="form-group col-md-2" >
+          <%= image_tag @resume_info.picture %>
+        </div>
+
+        <div class="form-group col-md-8" >
+          <%= link_to 'Remove Picture', '#', class: 'btn btn-danger', id: 'remove_picture_button', :onclick => "remove_picture()" %>
+        </div>
+      </div>
+
+      <%= form.hidden_field :remove_picture_hidden, value: false %>
+
+      <div id="new_picture" style="display: none">
+        <%= form.input :picture, as: :file, label: 'Upload your Picture: ', required: false %>
+      </div>
+
+    <% else %>
+      <div id="new_picture" class="form-row" >
+        <%= form.input :picture, as: :file, label: 'Upload your Picture: ', required: false %>
+        <br>
+      </div>
+    <% end %>
+
+    <br>
+
+
+    <% if @resume_info&.file_cv&.attached? %>
+      <div id='file_cv_div' class="form-row" style="display: flex; padding: 3px;">
+        <div class="form-group col-md-2" >
+          <%= form.label 'Your Uploaded CV: ' %>
+
+        </div>
+        <div class="form-group col-md-2" >
+          <%= link_to 'Download CV', resume_info.file_cv, target: '_blank' if resume_info&.file_cv&.attached? %>
+        </div>
+
+
+        <div class="form-group col-md-8" >
+          <%= link_to 'Remove CV', '#', class: 'btn btn-danger', id: 'remove_file_cv_button', :onclick => "remove_file_cv()" %>
+        </div>
+      </div>
+
+      <%= form.hidden_field :remove_file_cv_hidden, value: false %>
+
+      <div id="new_file_cv" style="display: none">
+        <%= form.input :file_cv, as: :file, label: 'Upload your CV: ', required: false %>
+      </div>
+
+    <% else %>
+      <div id="new_file_cv">
+        <%= form.input :file_cv, as: :file, label: 'Upload your CV: ', required: false %>
+      </div>
+    <% end %>
+
   </div>
 
   <br>
+
   <h4>Your E-mails</h4>
   <div class="">
     <%= link_to_add_nested(form, :resume_emails, '#resume-emails', link_classes: 'btn btn-success', link_text: '+ Add E-mail') %> <!-- adds a link to add more items -->
@@ -30,7 +96,7 @@
   <div class="">
     <%= link_to_add_nested(form, :resume_phones, '#resume-phones', link_classes: 'btn btn-success', link_text: '+ Add Phone') %> <!-- adds a link to add more items -->
     <br>
-    <div id='resume-phones' style="padding-top: 10px; width: 100% !important;" >
+    <div id='resume-phones' style="padding-top: 10px; width: 100% !important;">
       <%= form.fields_for :resume_phones do |form_phones| %>
         <%= render 'resume_phone_fields', form: form_phones %>
       <% end %>
@@ -44,7 +110,7 @@
   <div class="">
     <%= link_to_add_nested(form, :resume_social_networks, '#resume-social_networks', link_classes: 'btn btn-success', link_text: '+ Add Social Networks') %> <!-- adds a link to add more items -->
     <br>
-    <div id='resume-social_networks' style="padding-top: 10px; width: 100% !important;" >
+    <div id='resume-social_networks' style="padding-top: 10px; width: 100% !important;">
       <%= form.fields_for :resume_social_networks do |form_social_networks| %>
         <%= render 'resume_social_network_fields', form: form_social_networks %>
       <% end %>
@@ -58,3 +124,22 @@
     <%= form.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+    function remove_picture() {
+        $("#resume_info_picture").val("");
+        $("#resume_info_remove_picture_hidden").val('true');
+        $("#picture_div").remove();
+        $("#new_picture").show();
+        $("#new_picture").css("display", "table-caption");
+    }
+
+    function remove_file_cv() {
+        $("#resume_info_file_cv").val("");
+        $("#resume_info_remove_file_cv_hidden").val('true');
+        $("#file_cv_div").remove();
+        $("#new_file_cv").show();
+        $("#new_file_cv").css("display", "table-caption");
+    }
+</script>

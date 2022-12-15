@@ -1,20 +1,20 @@
 <div class="wrapper-div form-row" style="display: flex; padding: 3px;">
-  <div class="form-group col-md-3" style="">
+  <div class="form-group col-md-3" >
     <%= form.hidden_field :_destroy %>
 
     <%= form.input :phone_number, class: '', style: "", as: :numeric %>
   </div>
 
-  <div class="form-group col-md-3" style="border: 0px solid blue">
+  <div class="form-group col-md-3" >
     <%= form.input :phone_type, as: :select, collection: ResumePhone.list_types, include_blank: false %>
   </div>
 
-  <div class="form-group col-md-2" style="border: 0px solid red; text-align: center;">
+  <div class="form-group col-md-2" style="; text-align: center;">
     <%= form.label ' ' %>
     <%= form.input :show, as: :boolean, style: 'align-self-center; margin-top: 17px;', label: 'Show Phone' %>
   </div>
 
-  <div class="form-group col-md-2" style="border: 0px solid green; text-align: center;">
+  <div class="form-group col-md-2" style="text-align: center;">
     <%= form.label ' ' %>
     <%= form.input :whatsapp, as: :boolean, style: 'align-self-center; margin-top: 17px;' %>
   </div>
