@@ -1,4 +1,5 @@
 class ResumeEmail < ApplicationRecord
+  belongs_to :resume_info
 
   validates_presence_of :email, :resume_info_id, :email_type
 

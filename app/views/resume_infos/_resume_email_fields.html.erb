@@ -11,7 +11,7 @@
 
   <div class="form-group col-md-2" style="; text-align: center;">
     <%= form.label ' ' %>
-    <%= form.input :show, as: :boolean, style: 'align-self-center; margin-top: 17px;', label: 'Show E-mail' %>
+    <%= form.input :show, as: :boolean, :input_html => {checked: form.object.new_record? || form.object.show?}, style: 'align-self-center; margin-top: 17px;', label: 'Show E-mail' %>
   </div>
 
   <div class="form-group col-md-2 align-self-center " style="margin-top: 20px; ">

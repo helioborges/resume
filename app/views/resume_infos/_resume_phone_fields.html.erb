@@ -11,12 +11,12 @@
 
   <div class="form-group col-md-2" style="; text-align: center;">
     <%= form.label ' ' %>
-    <%= form.input :show, as: :boolean, style: 'align-self-center; margin-top: 17px;', label: 'Show Phone' %>
+    <%= form.input :show, as: :boolean, :input_html => {checked: form.object.new_record? || form.object.show?}, style: 'align-self-center; margin-top: 17px;', label: 'Show Phone' %>
   </div>
 
   <div class="form-group col-md-2" style="text-align: center;">
     <%= form.label ' ' %>
-    <%= form.input :whatsapp, as: :boolean, style: 'align-self-center; margin-top: 17px;' %>
+    <%= form.input :whatsapp, as: :boolean, :input_html => {checked: form.object.new_record? || form.object.show?}, style: 'align-self-center; margin-top: 17px;' %>
   </div>
 
   <div class="form-group col-md-2 align-self-center " style="margin-top: 20px; ">

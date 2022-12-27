@@ -1,10 +1,22 @@
 # README
 
-Simple Resume App with Devise/Login
+Basic Resume App with Devise/Login
+
+simple_form with nested attributes
+
+bootstrap and fontawesome 
+
+active_storage (local) for uploads
+
+
+# Requirements: 
 
 * Ruby 3.1.1
 
 * Rails 7.0.3
+
+* sqlite3
+
 
 # Installation:
 

@@ -3,6 +3,8 @@
   <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 
   <div class="form-inputs">
+
+    <h3> About You: </h3>
     <%= form.input :name %>
     <%= form.input :description, as: :text %>
     <%= form.input :about, as: :text %>
@@ -17,15 +19,15 @@
 
     <% if @resume_info&.picture&.attached? %>
       <div id='picture_div' class="form-row" style="display: flex; padding: 3px;">
-        <div class="form-group col-md-2" >
+        <div class="form-group col-md-2">
           <%= form.label 'Your Uploaded Picture: ' %>
         </div>
 
-        <div class="form-group col-md-2" >
+        <div class="form-group col-md-2">
           <%= image_tag @resume_info.picture %>
         </div>
 
-        <div class="form-group col-md-8" >
+        <div class="form-group col-md-8">
           <%= link_to 'Remove Picture', '#', class: 'btn btn-danger', id: 'remove_picture_button', :onclick => "remove_picture()" %>
         </div>
       </div>
@@ -37,7 +39,7 @@
       </div>
 
     <% else %>
-      <div id="new_picture" class="form-row" >
+      <div id="new_picture" class="form-row">
         <%= form.input :picture, as: :file, label: 'Upload your Picture: ', required: false %>
         <br>
       </div>
@@ -48,16 +50,16 @@
 
     <% if @resume_info&.file_cv&.attached? %>
       <div id='file_cv_div' class="form-row" style="display: flex; padding: 3px;">
-        <div class="form-group col-md-2" >
+        <div class="form-group col-md-2">
           <%= form.label 'Your Uploaded CV: ' %>
 
         </div>
-        <div class="form-group col-md-2" >
+        <div class="form-group col-md-2">
           <%= link_to 'Download CV', resume_info.file_cv, target: '_blank' if resume_info&.file_cv&.attached? %>
         </div>
 
 
-        <div class="form-group col-md-8" >
+        <div class="form-group col-md-8">
           <%= link_to 'Remove CV', '#', class: 'btn btn-danger', id: 'remove_file_cv_button', :onclick => "remove_file_cv()" %>
         </div>
       </div>
@@ -77,6 +79,9 @@
   </div>
 
   <br>
+  <hr>
+
+  <h3> Contact Information:</h3>
 
   <h4>Your E-mails</h4>
   <div class="">
@@ -118,8 +123,29 @@
   </div>
 
   <br>
+  <hr>
+  <h3> Education and Employment:</h3>
+
+  <br>
   <br>
 
+  <h4>Your Education</h4>
+  <div class="">
+    <%= link_to_add_nested(form, :resume_educations, '#resume-educations', link_classes: 'btn btn-success', link_text: '+ Add Education') %> <!-- adds a link to add more items -->
+    <br>
+    <div id='resume-educations' style="padding-top: 10px; width: 100% !important;">
+      <%= form.fields_for :resume_educations do |form_educations| %>
+        <%= render 'resume_education_fields', form: form_educations %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="form-actions">
     <%= form.button :submit, class: 'btn btn-primary' %>
   </div>

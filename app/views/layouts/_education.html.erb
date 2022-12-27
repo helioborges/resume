@@ -4,7 +4,9 @@
       <div class="col-12">
         <h4 class="header-title mb-3">Education & Skills</h4>
       </div><!--end col-->
+
       <div class="col-sm-6 col-print-6">
+
         <div class="row">
           <div class="col-sm-6 col-print-6">
             <div class="resume-icon">
@@ -12,29 +14,43 @@
               <h5 class="mt-n2">Education</h5>
             </div><!--end resume-icon-->
             <div class="timeline">
-              <div class="time-item">
-                <div class="item-info">
-                  <div class="font-14">1998 - 2005</div>
-                  <h5 class="my-1 text-dark">Highschool</h5>
-                  <p>Secondary Education</p>
-                </div>
-              </div><!--end time-item-->
-              <div class="time-item mt-3">
-                <div class="item-info">
-                  <div class="font-14">2005 - 2008</div>
-                  <h5 class="my-1 text-dark">University</h5>
-                  <p>Bachelor of Computer Applications</p>
-                </div>
-              </div><!--end time-item-->
-              <div class="time-item  mt-3">
-                <div class="item-info">
-                  <div class="font-14">2008 - 2010</div>
-                  <h5 class="my-1 text-dark">Master</h5>
-                  <p>Master of Science</p>
-                </div>
-              </div><!--end time-item-->
-            </div><!--end timeline-->
+
+              <% for education in @resume_info.resume_educations.order(Arel.sql(' year_end IS NOT NULL, year_end desc, year_start desc ')) do %>
+
+                <% if education.show %>
+                  <div class="time-item">
+                    <div class="item-info">
+
+                      <h5 class="my-1 text-info">
+                        <%= education.year_start %>
+                        - <%= education.year_end ? education.year_end : 'Now' %>
+                      </h5>
+
+                      <h5 class="my-1 text-custom">
+                        <%= education.title %>
+                      </h5>
+
+                      <p>
+                        <% if education.url.present? %>
+                          <!-- <i class="fa fa-arrow-alt-circle-right"></i>-->
+                          @  <%= link_to education.institution, education.clean_url, target: '_blank' %>
+                        <% else %>
+                          @  <%= education.institution %>
+                        <% end %>
+                      </p>
+
+                      <% if education.description %>
+                        <p> <%= education.description %> </p>
+                      <% end %>
+
+                    </div>
+                  </div><!--end time-item-->
+
+                <% end %>
+              <% end %>
+            </div>
           </div><!--end col-->
+
           <div class="col-sm-6 col-print-6">
             <div class="resume-icon">
               <i class="uil uil-suitcase-alt"></i>
@@ -54,6 +70,20 @@
                   <h5 class="my-1 text-dark">Senior Developer</h5>
                   <p>Apple Co.</p>
                 </div>
+                <div class="time-item mt-3">
+                  <div class="item-info">
+                    <div class="font-14">2013 - 2015</div>
+                    <h5 class="my-1 text-dark">Senior Developer</h5>
+                    <p>Apple Co.</p>
+                  </div>
+                </div><!--end time-item-->
+              </div><!--end time-item-->
+              <div class="time-item mt-3">
+                <div class="item-info">
+                  <div class="font-14">2013 - 2015</div>
+                  <h5 class="my-1 text-dark">Senior Developer</h5>
+                  <p>Apple Co.</p>
+                </div>
               </div><!--end time-item-->
               <div class="time-item  mt-3">
                 <div class="item-info">
@@ -65,7 +95,10 @@
             </div><!--end timeline-->
           </div><!--end col-->
         </div><!--end row-->
+
       </div><!--end col-->
+
+
       <div class="col-sm-6 col-print-6 align-self-center">
         <div class="skills mt-4">
           <div class="skill-box">
