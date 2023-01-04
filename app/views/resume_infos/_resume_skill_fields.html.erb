@@ -1,0 +1,25 @@
+<div class="wrapper-div form-row" style="display: flex; padding: 3px;">
+  <%= form.hidden_field :_destroy %>
+
+  <div class="form-group col-md-3">
+    <%= form.input :name, class: '', style: "" %>
+  </div>
+
+  <div class="form-group col-md-1">
+    <%= form.input :level, collection: 0..100, include_blank: false %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= form.input :description, class: '', style: "width: 20px" %>
+  </div>
+
+  <div class="form-group col-md-2" style="; text-align: center;">
+    <%= form.label ' ' %>
+    <%= form.input :show, as: :boolean, :input_html => { checked: form.object.new_record? || form.object.show? }, style: 'align-self-center; margin-top: 17px;', label: 'Show Skill' %>
+  </div>
+
+  <div class="form-group col-md-2 align-self-center " style="margin-top: 20px; ">
+    <%= link_to_remove_nested(form, link_text: "Remove Skill", link_classes: 'btn btn-danger', fields_wrapper_selector: '.wrapper-div') %>
+  </div>
+
+</div>

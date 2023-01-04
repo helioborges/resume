@@ -19,7 +19,7 @@
               <% for education in @resume_info.resume_educations.order(Arel.sql(' year_end IS NOT NULL, year_end desc, year_start desc ')) do %>
 
                 <% if education.show %>
-                  <div class="time-item">
+                  <div class="time-item" title="<%= education.description %>">
                     <div class="item-info">
 
                       <h5 class="my-1 text-info">
@@ -34,7 +34,7 @@
                       <p>
                         <% if education.url.present? %>
                           <!-- <i class="fa fa-arrow-alt-circle-right"></i>-->
-                          @  <%= link_to education.institution, education.clean_url, target: '_blank', style: 'text-decoration: underline;' %>
+                          @  <%= link_to education.institution, education.clean_url, target: '_blank', style: 'text-decoration: underline;', title: education.clean_url %>
                         <% else %>
                           @  <%= education.institution %>
                         <% end %>
@@ -57,12 +57,12 @@
               <i class="uil uil-suitcase-alt"></i>
               <h5 class="mt-n2">Employment</h5>
             </div><!--end resume-icon-->
-            <div class="timeline">
+            <div class="timeline" >
 
               <% for experience in @resume_info.resume_experiences.order(Arel.sql(' year_end IS NOT NULL, year_end desc, year_start desc ')) do %>
 
                 <% if experience.show %>
-                  <div class="time-item">
+                  <div class="time-item" title="<%= experience.description %>">
                     <div class="item-info">
 
                       <h5 class="my-1 text-info">
@@ -77,7 +77,7 @@
                       <p>
                         <% if experience.url.present? %>
                           <!-- <i class="fa fa-arrow-alt-circle-right"></i>-->
-                          @  <%= link_to experience.company, experience.clean_url, target: '_blank', style: 'text-decoration: underline;' %>
+                          @  <%= link_to experience.company, experience.clean_url, target: '_blank', style: 'text-decoration: underline;', title: experience.clean_url %>
                         <% else %>
                           @  <%= experience.company %>
                         <% end %>
@@ -103,40 +103,25 @@
               <h5 class="mt-n2">Skills</h5>
             </div><!--end skills-icon-->
 
-            <div class="timeline">
-              <div class="skills mt-4">
-                <div class="skill-box">
-                  <h4 class="skill-title">HTML5 &amp; CSS3 </h4>
-                  <div class="progress-line">
-                                        <span data-percent="78" style="width: 78%;">
-                                            <span class="percent-tooltip">78%</span>
-                                        </span>
-                  </div>
-                </div><!--end skill-box-->
-                <div class="skill-box">
-                  <h4 class="skill-title">Web Design</h4>
-                  <div class="progress-line">
-                                        <span data-percent="90" style="width: 90%;">
-                                            <span class="percent-tooltip">90%</span>
-                                        </span>
-                  </div>
-                </div><!--end skill-box-->
-                <div class="skill-box">
-                  <h4 class="skill-title">UI/UX Design</h4>
-                  <div class="progress-line">
-                                        <span data-percent="80" style="width: 80%;">
-                                            <span class="percent-tooltip">80%</span>
-                                        </span>
-                  </div>
-                </div><!--end skill-box-->
-                <div class="skill-box">
-                  <h4 class="skill-title">Photoshop &amp; Ilistletor </h4>
-                  <div class="progress-line">
-                                        <span data-percent="95" style="width: 95%;">
-                                            <span class="percent-tooltip">95%</span>
-                                        </span>
-                  </div>
-                </div><!--end skill-box-->
+            <div class="timeline" style="border: 0">
+              <% for skill in @resume_info.resume_skills.order(level: :desc, id: :asc) do %>
+
+                <div class="skills mt-4 " title="<%= skill.description %>">
+                  <div class="skill-box">
+                    <h4 class="skill-title time-item" style="padding-left: 10px; margin-bottom: 3px;">
+                      <%= skill.name %>
+                    </h4>
+                    <div class="progress-line" style="margin-left: 10px;">
+                        <span data-percent="<%= skill.level %>" style="width: <%= skill.level %>%;">
+                          <span class="percent-tooltip">
+                              <%= skill.level %>%
+                          </span>
+                        </span>
+                    </div>
+                  </div><!--end skill-box-->
+
+              <% end %>
+
               </div><!--end skill-->
 
             </div><!--end col-->

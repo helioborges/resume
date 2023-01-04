@@ -11,11 +11,12 @@ class ResumeInfo < ApplicationRecord
   has_many :resume_social_networks
   has_many :resume_educations
   has_many :resume_experiences
+  has_many :resume_skills
 
   has_one_attached :file_cv
   has_one_attached :picture
 
-  accepts_nested_attributes_for :resume_emails, :resume_languages, :resume_phones, :resume_social_networks, :resume_educations, :resume_experiences, allow_destroy: true
+  accepts_nested_attributes_for :resume_emails, :resume_languages, :resume_phones, :resume_social_networks, :resume_educations, :resume_experiences, :resume_skills, allow_destroy: true
 
   private
 

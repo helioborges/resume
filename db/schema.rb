@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_220330) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_224617) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -108,6 +108,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_220330) do
     t.index ["resume_info_id"], name: "index_resume_phones_on_resume_info_id"
   end
 
+  create_table "resume_skills", force: :cascade do |t|
+    t.integer "resume_info_id", null: false
+    t.string "name"
+    t.text "description"
+    t.integer "level"
+    t.boolean "show"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_info_id"], name: "index_resume_skills_on_resume_info_id"
+  end
+
 # Could not dump table "resume_social_networks" because of following StandardError
 #   Unknown type 'attachment' for column 'picture'
 
@@ -145,6 +156,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_220330) do
   add_foreign_key "resume_languages", "languages"
   add_foreign_key "resume_languages", "resume_infos"
   add_foreign_key "resume_phones", "resume_infos"
+  add_foreign_key "resume_skills", "resume_infos"
   add_foreign_key "resume_social_networks", "resume_infos"
   add_foreign_key "resume_social_networks", "social_networks"
 end
