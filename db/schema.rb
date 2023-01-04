@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_27_182217) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_220330) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -70,6 +70,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_27_182217) do
     t.index ["resume_info_id"], name: "index_resume_emails_on_resume_info_id"
   end
 
+  create_table "resume_experiences", force: :cascade do |t|
+    t.integer "resume_info_id", null: false
+    t.integer "year_start"
+    t.integer "year_end"
+    t.string "title"
+    t.string "company"
+    t.text "description"
+    t.string "url"
+    t.boolean "show"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_info_id"], name: "index_resume_experiences_on_resume_info_id"
+  end
+
 # Could not dump table "resume_infos" because of following StandardError
 #   Unknown type 'attachment' for column 'file_cv'
 
@@ -127,6 +141,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_27_182217) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "resume_educations", "resume_infos"
   add_foreign_key "resume_emails", "resume_infos"
+  add_foreign_key "resume_experiences", "resume_infos"
   add_foreign_key "resume_languages", "languages"
   add_foreign_key "resume_languages", "resume_infos"
   add_foreign_key "resume_phones", "resume_infos"

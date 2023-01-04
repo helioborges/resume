@@ -1,14 +1,15 @@
 <section class="section-md">
   <div class="container">
-    <div class="row">
+    <div class="row" style="border: 0px solid #00f">
       <div class="col-12">
-        <h4 class="header-title mb-3">Education & Skills</h4>
+        <h4 class="header-title mb-3">Education, Employment & Skills</h4>
       </div><!--end col-->
 
-      <div class="col-sm-6 col-print-6">
+      <div class="col-sm-12 col-print-12" style="border: 0px solid #0f0">
 
-        <div class="row">
-          <div class="col-sm-6 col-print-6">
+        <div class="row" style="border: 0px solid #f00">
+
+          <div class="col-sm-4 col-print-4">
             <div class="resume-icon">
               <i class="uil uil-graduation-hat"></i>
               <h5 class="mt-n2">Education</h5>
@@ -33,7 +34,7 @@
                       <p>
                         <% if education.url.present? %>
                           <!-- <i class="fa fa-arrow-alt-circle-right"></i>-->
-                          @  <%= link_to education.institution, education.clean_url, target: '_blank' %>
+                          @  <%= link_to education.institution, education.clean_url, target: '_blank', style: 'text-decoration: underline;' %>
                         <% else %>
                           @  <%= education.institution %>
                         <% end %>
@@ -51,90 +52,100 @@
             </div>
           </div><!--end col-->
 
-          <div class="col-sm-6 col-print-6">
+          <div class="col-sm-4 col-print-4">
             <div class="resume-icon">
               <i class="uil uil-suitcase-alt"></i>
-              <h5 class="mt-n2">Experience</h5>
+              <h5 class="mt-n2">Employment</h5>
             </div><!--end resume-icon-->
             <div class="timeline">
-              <div class="time-item">
-                <div class="item-info">
-                  <div class="font-14">2011 - 2013</div>
-                  <h5 class="my-1 text-dark">Ui/Ux Designer</h5>
-                  <p>Job Design Company</p>
-                </div>
-              </div><!--end time-item-->
-              <div class="time-item mt-3">
-                <div class="item-info">
-                  <div class="font-14">2013 - 2015</div>
-                  <h5 class="my-1 text-dark">Senior Developer</h5>
-                  <p>Apple Co.</p>
-                </div>
-                <div class="time-item mt-3">
-                  <div class="item-info">
-                    <div class="font-14">2013 - 2015</div>
-                    <h5 class="my-1 text-dark">Senior Developer</h5>
-                    <p>Apple Co.</p>
-                  </div>
-                </div><!--end time-item-->
-              </div><!--end time-item-->
-              <div class="time-item mt-3">
-                <div class="item-info">
-                  <div class="font-14">2013 - 2015</div>
-                  <h5 class="my-1 text-dark">Senior Developer</h5>
-                  <p>Apple Co.</p>
-                </div>
-              </div><!--end time-item-->
-              <div class="time-item  mt-3">
-                <div class="item-info">
-                  <div class="font-14">2015 - 2019</div>
-                  <h5 class="my-1 text-dark">Web Designer - Freelance</h5>
-                  <p>Mannat-themes</p>
-                </div>
-              </div><!--end time-item-->
+
+              <% for experience in @resume_info.resume_experiences.order(Arel.sql(' year_end IS NOT NULL, year_end desc, year_start desc ')) do %>
+
+                <% if experience.show %>
+                  <div class="time-item">
+                    <div class="item-info">
+
+                      <h5 class="my-1 text-info">
+                        <%= experience.year_start %>
+                        - <%= experience.year_end ? experience.year_end : 'Now' %>
+                      </h5>
+
+                      <h5 class="my-1 text-custom">
+                        <%= experience.title %>
+                      </h5>
+
+                      <p>
+                        <% if experience.url.present? %>
+                          <!-- <i class="fa fa-arrow-alt-circle-right"></i>-->
+                          @  <%= link_to experience.company, experience.clean_url, target: '_blank', style: 'text-decoration: underline;' %>
+                        <% else %>
+                          @  <%= experience.company %>
+                        <% end %>
+                      </p>
+
+                      <% if experience.description %>
+                        <p> <%= experience.description %> </p>
+                      <% end %>
+
+                    </div>
+                  </div><!--end time-item-->
+
+                <% end %>
+              <% end %>
+
+
             </div><!--end timeline-->
           </div><!--end col-->
+
+          <div class="col-sm-4 col-print-4">
+            <div class="resume-icon">
+              <i class="uil uil-lightbulb-alt"></i>
+              <h5 class="mt-n2">Skills</h5>
+            </div><!--end skills-icon-->
+
+            <div class="timeline">
+              <div class="skills mt-4">
+                <div class="skill-box">
+                  <h4 class="skill-title">HTML5 &amp; CSS3 </h4>
+                  <div class="progress-line">
+                                        <span data-percent="78" style="width: 78%;">
+                                            <span class="percent-tooltip">78%</span>
+                                        </span>
+                  </div>
+                </div><!--end skill-box-->
+                <div class="skill-box">
+                  <h4 class="skill-title">Web Design</h4>
+                  <div class="progress-line">
+                                        <span data-percent="90" style="width: 90%;">
+                                            <span class="percent-tooltip">90%</span>
+                                        </span>
+                  </div>
+                </div><!--end skill-box-->
+                <div class="skill-box">
+                  <h4 class="skill-title">UI/UX Design</h4>
+                  <div class="progress-line">
+                                        <span data-percent="80" style="width: 80%;">
+                                            <span class="percent-tooltip">80%</span>
+                                        </span>
+                  </div>
+                </div><!--end skill-box-->
+                <div class="skill-box">
+                  <h4 class="skill-title">Photoshop &amp; Ilistletor </h4>
+                  <div class="progress-line">
+                                        <span data-percent="95" style="width: 95%;">
+                                            <span class="percent-tooltip">95%</span>
+                                        </span>
+                  </div>
+                </div><!--end skill-box-->
+              </div><!--end skill-->
+
+            </div><!--end col-->
+          </div><!--end col-->
+
         </div><!--end row-->
 
       </div><!--end col-->
 
-
-      <div class="col-sm-6 col-print-6 align-self-center">
-        <div class="skills mt-4">
-          <div class="skill-box">
-            <h4 class="skill-title">HTML5 &amp; CSS3 </h4>
-            <div class="progress-line">
-                                        <span data-percent="78" style="width: 78%;">
-                                            <span class="percent-tooltip">78%</span>
-                                        </span>
-            </div>
-          </div><!--end skill-box-->
-          <div class="skill-box">
-            <h4 class="skill-title">Web Design</h4>
-            <div class="progress-line">
-                                        <span data-percent="90" style="width: 90%;">
-                                            <span class="percent-tooltip">90%</span>
-                                        </span>
-            </div>
-          </div><!--end skill-box-->
-          <div class="skill-box">
-            <h4 class="skill-title">UI/UX Design</h4>
-            <div class="progress-line">
-                                        <span data-percent="80" style="width: 80%;">
-                                            <span class="percent-tooltip">80%</span>
-                                        </span>
-            </div>
-          </div><!--end skill-box-->
-          <div class="skill-box">
-            <h4 class="skill-title">Photoshop &amp; Ilistletor </h4>
-            <div class="progress-line">
-                                        <span data-percent="95" style="width: 95%;">
-                                            <span class="percent-tooltip">95%</span>
-                                        </span>
-            </div>
-          </div><!--end skill-box-->
-        </div><!--end skill-->
-      </div><!--end col-->
 
     </div><!--end row-->
   </div><!--end container-->

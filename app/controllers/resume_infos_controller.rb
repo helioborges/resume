@@ -78,6 +78,7 @@ class ResumeInfosController < ApplicationController
   def resume_info_params
     params.require(:resume_info).permit(:name, :description, :about, :looking, :birthday, :picture, :location, :timezone, :file_cv, :remove_picture_hidden, :remove_file_cv_hidden,
                                         resume_educations_attributes: [:id, :year_start, :year_end, :title, :institution, :description, :url, :show, :resume_info_id, :_destroy],
+                                        resume_experiences_attributes: [:id, :year_start, :year_end, :title, :company, :description, :url, :show, :resume_info_id, :_destroy],
                                         resume_emails_attributes: [:id, :email, :show, :email_type, :resume_info_id, :_destroy],
                                         resume_languages_attributes: [:id, :language_id, :level, :resume_info_id, :_destroy],
                                         resume_phones_attributes: [:id, :phone_number, :show, :phone_type, :whatsapp, :resume_info_id, :_destroy],
