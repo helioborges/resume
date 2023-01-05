@@ -39,10 +39,9 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
   config.remember_for = 2.years
-  config.mailer_sender = 'no-reply@example.com'
+  config.mailer_sender = 'your.email@address.com'
 
   config.action_mailer.perform_caching = false
 
@@ -73,6 +72,20 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   #
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.sass.inline_source_maps = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'YOURHOST' }
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address => "SMTPADRESS",
+    :port => "587",
+    :domain => "DOMAIN",
+    :user_name => "USERNAME",
+    :password => "PASSWORD",
+    :authentication => "plain",
+    :enable_starttls_auto => true
+  }
+
 end

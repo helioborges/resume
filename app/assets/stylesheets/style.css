@@ -973,7 +973,7 @@ a:hover, a:active, a:focus {
 }
 
 .section {
-  padding: 50px 20px !important;
+  padding: 30px 20px 20px 20px !important;
   position: relative;
 }
 

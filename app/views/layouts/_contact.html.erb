@@ -1,4 +1,4 @@
-<section class="section-md contact-form">
+<section class="section-md contact-form" id="contact_div">
   <div class="container">
     <div class="row">
       <div class="col-12 mb-3">
@@ -65,9 +65,13 @@
 
       <div class="col-sm-8">
         <div class="contact-form">
+
           <div id="message"></div>
 
-          <form method="post" action="php/contact.php" name="contact-form" id="contact-form">
+          <%= simple_form_for(@contact) do |form| %>
+            <%= form.error_notification %>
+            <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
+
 
             <div class="row">
 
@@ -94,7 +98,8 @@
               </div><!--end col-->
 
             </div><!--end row-->
-          </form><!--end form-->
+          <% end %>
+
         </div><!--end contact-form-->
       </div><!--end col-->
     </div><!--end row-->
