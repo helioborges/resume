@@ -17,17 +17,30 @@ active_storage (local) for uploads
 
 * sqlite3
 
-
 # Installation:
-
-* Clone
-* bundle install
-* rails active_storage:install
-* rake db:migrate 
-* rake db:seed 
-
-
-* rails server
-
+Clone 
+```
+bundle install
+rails active_storage:install
+rake db:migrate 
+rake db:seed 
+rails server
+```
 
 * Check seeds.rb to select what stuff you want to initially seed.
+
+
+* You can also change the credentials by typing:  
+```
+rails secret
+EDITOR=nano rails credentials:edit 
+```
+and include your e-mail information:
+```
+  email:
+  username: yourusername
+  password: yourpassword
+  host: yourhost.com
+  domain: yourhost.com
+  address: smtpi.yourhost.com
+```

@@ -68,33 +68,43 @@
 
           <div id="message"></div>
 
-          <%= simple_form_for(@contact) do |form| %>
+          <%= simple_form_for(@contact, :url => {:controller => 'home', :action => "send_message" , :anchor => "contact_div" }) do |form| %>
             <%= form.error_notification %>
             <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
 
+            <div id="alert">
+              <% if notice %>
+                <p class="alert alert-success"><%= notice %></p>
+              <% end %>
+              <% if @contact and @contact.errors and @contact.errors.size > 0 %>
+                <p class="alert alert-danger"><%= @contact.errors.full_messages.to_sentence %></p>
+              <% end %>
+            </div>
+
 
             <div class="row">
-
               <div class="form-group col-md-6">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control" id="name">
+                <label>Your Name</label>
+                <!--                <input type="text" name="name" class="form-control" id="name">-->
+                <%= h form.text_field :name, { :label => 'Your Name', :class => "form-control", :style => "  ", :placeholder => "" } %>
               </div><!--end col-->
 
               <div class="form-group col-md-6">
-                <label>Email address</label>
-                <input type="email" name="email" class="form-control" id="email">
+                <label>Your Email address</label>
+                <%= h form.text_field :email, { :label => 'Your E-mail', :class => "form-control", :style => "  ", :placeholder => "" } %>
               </div><!--end col-->
 
               <div class="form-group col-md-12">
-                <label>Message</label>
-                <textarea rows="4" name="message" class="form-control" id="comments"></textarea>
+                <label>Your Message</label>
+                <%= h form.text_field :message, { :label => 'Your Message', :class => "form-control", :style => "  ", :placeholder => "" } %>
               </div><!--end col-->
 
               <br>
+              <br>
 
-              <div class="form-group col-md-12">
-                <input type="submit" value="Send Message" name="submit" id="submit" class="btn btn-primary px-5 py-2">
-                <div id="simple-msg"></div>
+              <div class="form-group col-md-12" style="padding-top: 10px;">
+                <%= form.submit 'Send Message', class: 'btn btn-primary px-5 py-2' %>
+
               </div><!--end col-->
 
             </div><!--end row-->

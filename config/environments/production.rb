@@ -90,4 +90,34 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.sass.inline_source_maps = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = {:host => Rails.application.credentials[:email][:host]}
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address => Rails.application.credentials[:email][:address],
+    :port => "587",
+    :domain => Rails.application.credentials[:email][:domain],
+    :user_name => Rails.application.credentials[:email][:username],
+    :password => Rails.application.credentials[:email][:password],
+    :authentication => "plain",
+    :enable_starttls_auto => true
+  }
+
+  # * You can change the credentials by typing:
+  # ```
+  # rails secret
+  # EDITOR=nano rails credentials:edit
+  # ```
+  # and include:
+  # ```
+  #   email:
+  #   username: yourusername
+  #   password: yourpassword
+  #   host: yourhost.com
+  #   domain: yourhost.com
+  #   address: smtpi.yourhost.com
+  # ```
 end

@@ -37,11 +37,11 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.perform_deliveries = true
-  config.remember_for = 2.years
-  config.mailer_sender = 'your.email@address.com'
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.perform_deliveries = true
+  # config.remember_for = 2.years
+  # config.mailer_sender = 'your.email@address.com'
 
   config.action_mailer.perform_caching = false
 
@@ -76,16 +76,31 @@ Rails.application.configure do
   config.sass.inline_source_maps = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => 'YOURHOST' }
+  config.action_mailer.default_url_options = { :host => Rails.application.credentials[:email][:host] }
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address => "SMTPADRESS",
+    :address => Rails.application.credentials[:email][:address],
     :port => "587",
-    :domain => "DOMAIN",
-    :user_name => "USERNAME",
-    :password => "PASSWORD",
+    :domain => Rails.application.credentials[:email][:domain],
+    :user_name => Rails.application.credentials[:email][:username],
+    :password => Rails.application.credentials[:email][:password],
     :authentication => "plain",
     :enable_starttls_auto => true
   }
+
+  # * You can change the credentials by typing:
+  # ```
+  # rails secret
+  # EDITOR=nano rails credentials:edit
+  # ```
+  # and include:
+  # ```
+  #   email:
+  #   username: yourusername
+  #   password: yourpassword
+  #   host: yourhost.com
+  #   domain: yourhost.com
+  #   address: smtpi.yourhost.com
+  # ```
 
 end
