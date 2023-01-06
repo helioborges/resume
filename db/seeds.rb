@@ -7,7 +7,7 @@ resume.looking = 'What are you looking for'
 resume.birthday = Date.new(1987, 7, 11)
 #resume.picture = 'users/avatar.jpg'
 resume.location = 'Goiânia / GO - Brazil'
-resume.timezone = 'UTC -3'
+resume.time_zone = 'UTC -3'
 resume.schedule = 'Flexible'
 resume.save
 
@@ -18,11 +18,11 @@ ResumeLanguage.create({ language_id: language.id, level: 5, resume_info_id: resu
 
 language = Language.create({ name: 'Portuguese', icon: '🇵🇹' })
 
-language = Language.create({ name: 'English', icon: '🇪🇸' })
-ResumeLanguage.create({ language_id: language.id, level: 5, resume_info_id: resume.id })
-
-language = Language.create({ name: 'Spanish', icon: '🇬🇧' })
+language = Language.create({ name: 'Spanish', icon: '🇪🇸' })
 ResumeLanguage.create({ language_id: language.id, level: 2, resume_info_id: resume.id })
+
+language = Language.create({ name: 'English', icon: '🇬🇧' })
+ResumeLanguage.create({ language_id: language.id, level: 5, resume_info_id: resume.id })
 
 #if you want all languages, just uncomment this code, there are no flag icons for them:
 # Language.delete_all
