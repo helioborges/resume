@@ -12,10 +12,11 @@ yarn add @fortawesome/fontawesome-svg-core
 yarn add @fortawesome/free-solid-svg-icons
 yarn add @fortawesome/free-regular-svg-icons
 yarn add @fortawesome/free-brands-svg-icons
+yarn add jquery popper.js bootstrap
 #echo '************ Yarn Build ************'
 yarn build
 yarn build:css
-yarn add jquery popper.js bootstrap
+
 echo '************ Assets:Clean ************'
 rake assets:clean
 echo '************ Assets:Clobber ************'
