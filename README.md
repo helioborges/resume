@@ -44,3 +44,5 @@ and include your e-mail information:
   domain: yourhost.com
   address: smtpi.yourhost.com
 ```
+
+You can create your user, that is automatically an admin, to edit/create records

@@ -1,6 +1,6 @@
 <div class="zoo-profile-main">
   <div class="zoo-profile-main-pic">
-    <%= image_tag @resume_info.picture, class: "rounded-circle" if @resume_info and @resume_info.picture %>
+    <%= image_tag @resume_info.picture, class: "rounded-circle" if @resume_info and  !@resume_info.picture.blank? %>
   </div>
 
   <div class="zoo-profile_user-detail">
