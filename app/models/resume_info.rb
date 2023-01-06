@@ -1,7 +1,7 @@
 class ResumeInfo < ApplicationRecord
   attr_accessor :remove_picture_hidden, :remove_file_cv_hidden
 
-  validates_presence_of :name, :description, :about, :looking, :birthday, :picture
+  validates_presence_of :name, :description, :about, :looking, :birthday
   validate :birthday_must_be_a_date
   validate :picture_format
 

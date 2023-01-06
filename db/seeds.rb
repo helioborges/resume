@@ -1,4 +1,5 @@
 #Creating your Resume File. Edit this
+p 'Seeding Resume Info'
 resume = ResumeInfo.new
 resume.name = 'Your Full Name'
 resume.description = 'Your Description'
@@ -10,7 +11,7 @@ resume.location = 'Goiânia / GO - Brazil'
 resume.time_zone = 'UTC -3'
 resume.schedule = 'Flexible'
 resume.save
-
+p resume
 #POPULATING LANGUAGES
 Language.delete_all
 language = Language.create({ name: 'Brazilian Portuguese', icon: '🇧🇷' })
