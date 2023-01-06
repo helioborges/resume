@@ -1,6 +1,6 @@
 databases:
   - name: resume
-    databaseName: db/development.sqlite3
+    databaseName: resume_6aaf
     user: resume
 
 services:
