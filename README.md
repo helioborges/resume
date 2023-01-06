@@ -15,7 +15,7 @@ active_storage (local) for uploads
 
 * Rails 7.0.3
 
-* sqlite3
+* PostgreSQL
 
 # Installation:
 Clone 
