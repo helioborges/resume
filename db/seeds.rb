@@ -12,7 +12,9 @@ resume.time_zone = 'UTC -3'
 resume.schedule = 'Flexible'
 resume.save
 p resume
+
 #POPULATING LANGUAGES
+p 'Seeding Languages'
 Language.delete_all
 language = Language.create({ name: 'Brazilian Portuguese', icon: '🇧🇷' })
 ResumeLanguage.create({ language_id: language.id, level: 5, resume_info_id: resume.id })
@@ -35,6 +37,7 @@ ResumeLanguage.create({ language_id: language.id, level: 5, resume_info_id: resu
 # end
 
 #POPULATING SOCIAL NETWORKS
+p 'Seeding Social Networks'
 SocialNetwork.delete_all
 social_network = SocialNetwork.create({ name: 'Facebook', icon: 'facebook' })
 ResumeSocialNetwork.create({ social_network_id: social_network.id, url: 'https://www.test.com', resume_info_id: resume.id, show: true })
@@ -78,6 +81,8 @@ social_network = SocialNetwork.create({ name: 'Vimeo', icon: 'vimeo-v' })
 # social_network = SocialNetwork.create({ name: 'Weibo', icon: 'weibo' })
 # social_network = SocialNetwork.create({ name: 'Vk', icon: 'vk' })
 
+#POPULATING CONTACT
+p 'Seeding Default E-mail and Phone'
 resume_email = ResumeEmail.create(:email => 'youremail@email.com', email_type: 'Personal', show: true, resume_info_id: resume.id)
 resume_phone = ResumePhone.create(:phone_number => '+55 62 99999-9999', phone_type: 'Personal', show: true, resume_info_id: resume.id, whatsapp: true)
 
