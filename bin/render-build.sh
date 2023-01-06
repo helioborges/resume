@@ -1,9 +1,18 @@
 #bundle config unset frozen
 #bundle lock --add-platform ruby
 #bundle lock --add-platform x86_64-linux
-#bundle install
+echo '************ Bundle Install ************'
+bundle install
+echo '************ Yarn ************'
 yarn
+echo '************ Yarn Adding Packages ************'
+yarn add @fortawesome/fontawesome-svg-
+yarn add @fortawesome/free-solid-svg-icons
+yarn add @fortawesome/free-regular-svg-icons
+yarn add @fortawesome/free-brands-svg-icons
+echo '************ Yarn Build ************'
 yarn build
+echo '************ Assets:Precompile ************'
 bundle exec rails assets:precompile
 #yarn build
 #rails active_storage:install
