@@ -1,0 +1,42 @@
+  <div class="resume-icon">
+    <i class="uil uil-suitcase-alt"></i>
+    <h5 class="mt-n2">Employment</h5>
+  </div><!--end resume-icon-->
+  <div class="timeline" >
+
+    <% for experience in @resume_info.resume_experiences.order(Arel.sql(' year_end IS NOT NULL, year_end desc, year_start desc ')) do %>
+
+      <% if experience.show %>
+        <div class="time-item" title="<%= experience.description %>">
+          <div class="item-info">
+
+            <h5 class="my-1 text-info">
+              <%= experience.year_start %>
+              - <%= experience.year_end ? experience.year_end : 'Now' %>
+            </h5>
+
+            <h5 class="my-1 text-custom">
+              <%= experience.title %>
+            </h5>
+
+            <p>
+              <% if experience.url.present? %>
+                <!-- <i class="fa fa-arrow-alt-circle-right"></i>-->
+                @  <%= link_to experience.company, experience.clean_url, target: '_blank', style: 'text-decoration: underline;', title: experience.clean_url %>
+              <% else %>
+                @  <%= experience.company %>
+              <% end %>
+            </p>
+
+            <% if experience.description %>
+              <p> <%= experience.description %> </p>
+            <% end %>
+
+          </div>
+        </div><!--end time-item-->
+
+      <% end %>
+    <% end %>
+
+
+  </div><!--end timeline-->

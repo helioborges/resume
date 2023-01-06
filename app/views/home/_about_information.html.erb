@@ -1,0 +1,44 @@
+<div class="col-3" style="border: 0px solid red">
+  <p>
+    <span class="personal-detail-title">Date of birth</span>
+    <span class="personal-detail-info"><%= @resume_info.birthday.to_date.to_fs(:long) %></span>
+  </p>
+
+
+  <p>
+    <span class="personal-detail-title">Spoken Langages:</span>
+    <% for resume_language in @resume_info.resume_languages do %>
+      <% language_level = resume_language.level.to_i * 20 %>
+
+      <span class="personal-detail-info">
+              <%= resume_language.language.icon %> <%= resume_language.language.name %>
+            </span>
+    <% end %>
+  </p>
+
+  <p>
+    <span class="personal-detail-title">Location:</span>
+    <span class="personal-detail-info">
+            <%= @resume_info.location %>
+          </span>
+  </p>
+
+  <p>
+    <span class="personal-detail-title">Time Zone:</span>
+    <span class="personal-detail-info">
+            <%= @resume_info.time_zone %>
+          </span>
+  </p>
+
+  <p>
+    <span class="personal-detail-title">Available Hours:</span>
+    <span class="personal-detail-info">
+            <%= @resume_info.schedule %>
+          </span>
+  </p>
+
+
+  <%= link_to 'Download CV', @resume_info.file_cv, target: '_blank', class: "btn btn-sm btn-soft-primary" if @resume_info&.file_cv&.attached? %>
+
+
+</div><!--end col-->

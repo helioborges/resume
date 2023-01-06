@@ -1,0 +1,41 @@
+
+  <div class="resume-icon">
+    <i class="uil uil-graduation-hat"></i>
+    <h5 class="mt-n2">Education</h5>
+  </div><!--end resume-icon-->
+  <div class="timeline">
+
+    <% for education in @resume_info.resume_educations.order(Arel.sql(' year_end IS NOT NULL, year_end desc, year_start desc ')) do %>
+
+      <% if education.show %>
+        <div class="time-item" title="<%= education.description %>">
+          <div class="item-info">
+
+            <h5 class="my-1 text-info">
+              <%= education.year_start %>
+              - <%= education.year_end ? education.year_end : 'Now' %>
+            </h5>
+
+            <h5 class="my-1 text-custom">
+              <%= education.title %>
+            </h5>
+
+            <p>
+              <% if education.url.present? %>
+                <!-- <i class="fa fa-arrow-alt-circle-right"></i>-->
+                @  <%= link_to education.institution, education.clean_url, target: '_blank', style: 'text-decoration: underline;', title: education.clean_url %>
+              <% else %>
+                @  <%= education.institution %>
+              <% end %>
+            </p>
+
+            <% if education.description %>
+              <p> <%= education.description %> </p>
+            <% end %>
+
+          </div>
+        </div><!--end time-item-->
+
+      <% end %>
+    <% end %>
+  </div>

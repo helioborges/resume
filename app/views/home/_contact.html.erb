@@ -1,0 +1,84 @@
+<section class="section-md contact-form" id="contact_div">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h4 class="header-title mb-3">Contact Me</h4>
+      </div> <!--end col-->
+      <div class="col-sm-4">
+        <div class="contact-info">
+          <div class="icon">
+            <i class='uil uil-phone-volume'></i>
+          </div>
+          <div class="content">
+            <h5>Call Me:</h5>
+
+            <% for resume_phone in @resume_info.resume_phones do %>
+
+              <% if resume_phone.show %>
+                <span>
+                  <b> <%= resume_phone.phone_type %></b>:
+
+                  <% if resume_phone.whatsapp %>
+
+                    <%= link_to resume_phone.phone_number, "https://api.whatsapp.com/send?l=pt_BR&phone=#{resume_phone.phone_number}", target: "_blank" %>
+                    <%= link_to "https://api.whatsapp.com/send?l=pt_BR&phone=#{resume_phone.phone_number}", target: "_blank", class: "bg-icon-ball-small bg-whatsapp" do %>
+                    <%= icon('fa-brands', "whatsapp") %>
+                  <% end %>
+
+                  <% else %>
+                       <%= resume_phone.phone_number %>
+                  <% end %>
+                </span>
+
+                <br>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div><!--end contact-info-->
+
+        <div class="contact-info">
+          <div class="icon">
+            <i class='uil uil-envelope'></i>
+          </div>
+          <div class="content">
+            <h5>Mail Me:</h5>
+
+            <% for resume_email in @resume_info.resume_emails do %>
+              <% if resume_email.show %>
+                <span>
+                  <b> <%= resume_email.email_type %> Email </b>:
+                  <%= resume_email.email %>
+                </span>
+                <br>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div><!--end contact-info-->
+
+        <% if @resume_info.location %>
+          <div class="contact-info">
+            <div class="icon">
+              <i class='uil uil-map-marker'></i>
+            </div>
+            <div class="content">
+              <h5>I'm Located in:</h5>
+              <span><%= @resume_info.location %></span>
+            </div>
+          </div><!--end contact-info-->
+
+        <% end %>
+
+      </div><!--end col-->
+
+      <div class="col-sm-8">
+        <%= render 'contact_form' %>
+      </div><!--end col-->
+
+    </div><!--end row-->
+
+  </div><!--end container-->
+</section><!--end section-->

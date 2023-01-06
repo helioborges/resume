@@ -15,7 +15,7 @@
         <!--        </li>-->
 
         <li class="nav-item">
-          <%= link_to 'Your Resume Info', resume_infos_path, :class => "nav-link" %>
+          <%= link_to 'Your Resume Info', resume_infos_path, class: "nav-link" %>
         </li>
 
 
@@ -28,16 +28,16 @@
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <%= link_to 'List Users', users_path, :class => "dropdown-item" %>
+              <%= link_to 'List Users', users_path, class: "dropdown-item" %>
             </li>
             <li>
-              <%= link_to 'Create User', new_user_registration_path, :class => "dropdown-item" %>
+              <%= link_to 'Create User', new_user_registration_path, class: "dropdown-item" %>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
             <li>
-              <%= link_to 'Your Profile', user_path(current_user), :class => "dropdown-item" if current_user %>
+              <%= link_to 'Your Profile', user_path(current_user), class: "dropdown-item" if current_user %>
             </li>
           </ul>
         </li>
@@ -50,10 +50,10 @@
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <%= link_to 'List Social Networks', social_networks_path, :class => "dropdown-item" %>
+              <%= link_to 'List Social Networks', social_networks_path, class: "dropdown-item" %>
             </li>
             <li>
-              <%= link_to 'Create Social Network', new_social_network_path, :class => "dropdown-item" %>
+              <%= link_to 'Create Social Network', new_social_network_path, class: "dropdown-item" %>
             </li>
 
           </ul>
@@ -67,10 +67,10 @@
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <%= link_to 'List Languages', languages_path, :class => "dropdown-item" %>
+              <%= link_to 'List Languages', languages_path, class: "dropdown-item" %>
             </li>
             <li>
-              <%= link_to 'Create Languages', new_language_path, :class => "dropdown-item" %>
+              <%= link_to 'Create Languages', new_language_path, class: "dropdown-item" %>
             </li>
 
           </ul>
@@ -92,13 +92,13 @@
         <%= button_to(
               "Logout",
               destroy_user_session_path,
-              method: :get, :class => 'btn btn-lg btn-danger', :title => 'Logout'
+              method: :get, class: 'btn btn-lg btn-danger', title: 'Logout'
             ) %>
       <% else %>
         <%= button_to(
               "Login",
               new_user_session_path,
-              method: :get, :class => 'btn btn-lg btn-primary', :title => 'Login'
+              method: :get, class: 'btn btn-lg btn-primary', title: 'Login'
             ) %>
       <% end %>
 
