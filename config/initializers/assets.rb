@@ -11,8 +11,10 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w( bootstrap.min.js popper.js  )
+Rails.application.config.assets.precompile += %w( application.css )
+Rails.application.config.assets.precompile += %w( application.css.scss )
 Rails.application.config.assets.precompile += %w( application.scss )
+Rails.application.config.assets.precompile += %w( bootstrap.min.js popper.js  )
 Rails.application.config.assets.precompile += %w( ripple/jquery.ripples.js )
 Rails.application.config.assets.precompile += %w( app.js )
 Rails.application.config.assets.precompile += %w( animated/headline.js )
@@ -36,6 +38,7 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
 Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap-icons/font")
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets')
 
 # Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'javascript', 'packs')
 # Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'javascript', 'packs', 'nested-forms')

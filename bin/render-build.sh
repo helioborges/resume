@@ -1,6 +1,8 @@
 #bundle config unset frozen
 #bundle lock --add-platform ruby
 #bundle lock --add-platform x86_64-linux
+echo '************ Looking ************'
+ls app/assets/builds
 echo '************ Bundle Install ************'
 bundle install
 #echo '************ Yarn ************'
@@ -12,13 +14,17 @@ yarn add @fortawesome/free-regular-svg-icons
 yarn add @fortawesome/free-brands-svg-icons
 #echo '************ Yarn Build ************'
 yarn build
+yarn build:css
+yarn add jquery popper.js bootstrap
 echo '************ Assets:Clean ************'
 rake assets:clean
 echo '************ Assets:Clobber ************'
 rake assets:clobber
 echo '************ Assets:Precompile ************'
 #bundle exec rails assets:precompile --trace
-rake assets:precompile
+#rake assets:precompile
+echo '************ Rails Assets:Precompile ************'
+#rails assets:precompile
 echo '************ Looking ************'
 pwd
 ls app/assets/builds
