@@ -23,7 +23,7 @@ echo '************ Assets:Clobber ************'
 rake assets:clobber
 echo '************ Assets:Precompile ************'
 #bundle exec rails assets:precompile --trace
-#rake assets:precompile
+rake assets:precompile
 echo '************ Rails Assets:Precompile ************'
 #rails assets:precompile
 echo '************ Looking ************'
