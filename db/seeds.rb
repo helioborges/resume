@@ -13,6 +13,14 @@ resume.schedule = 'Flexible'
 resume.save
 p resume
 
+#CREATING USER ADMIN
+user = User.new
+user.name = 'Admin User'
+user.email = 'youremail@email.com'
+user.password = 'resumeadmin123'
+user.admin = true
+user.save
+
 #POPULATING LANGUAGES
 p 'Seeding Languages'
 Language.delete_all

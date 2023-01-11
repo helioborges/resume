@@ -8,6 +8,8 @@ bootstrap and fontawesome
 
 active_storage (local) for uploads
 
+It's configured to work with 'render.com' deployment
+
 
 # Requirements: 
 
@@ -27,7 +29,7 @@ rake db:seed
 rails server
 ```
 
-* Check seeds.rb to select what stuff you want to initially seed.
+* Check seeds.rb to select what stuff you want to initially seed. It creates the basic resume profile and admin user.
 
 
 * You can also change the credentials by typing:  

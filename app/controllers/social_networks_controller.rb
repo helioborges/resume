@@ -1,5 +1,6 @@
 class SocialNetworksController < ApplicationController
   before_action :set_social_network, only: %i[ show edit update destroy ]
+  before_action :check_admin
 
   # GET /social_networks or /social_networks.json
   def index

@@ -1,6 +1,6 @@
 class ResumeInfosController < ApplicationController
   before_action :set_resume_info, only: %i[ show edit update destroy ]
-
+  before_action :check_admin
   # GET /resume_infos or /resume_infos.json
   def index
     @resume_infos = ResumeInfo.all

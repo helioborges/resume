@@ -1,7 +1,7 @@
 <div class="col-3" style="border: 0px solid red">
   <p>
     <span class="personal-detail-title">Date of birth</span>
-    <span class="personal-detail-info"><%= @resume_info.birthday.to_date.to_fs(:long) %></span>
+    <span class="personal-detail-info"><%= @resume_info.birthday.to_date.to_fs(:long) %> (<%= age(@resume_info.birthday.to_date) %> years)</span>
   </p>
 
 

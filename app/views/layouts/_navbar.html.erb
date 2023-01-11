@@ -7,100 +7,102 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <% if current_user and current_user.admin? %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!--        <li class="nav-item">-->
-        <!--          <a class="nav-link active" aria-current="page" href="/">Home</a>-->
-        <!--        </li>-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!--        <li class="nav-item">-->
+          <!--          <a class="nav-link active" aria-current="page" href="/">Home</a>-->
+          <!--        </li>-->
 
-        <li class="nav-item">
-          <%= link_to 'Your Resume Info', resume_infos_path, class: "nav-link" %>
-        </li>
-
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Users
-          </a>
+          <li class="nav-item">
+            <%= link_to 'Your Resume Info', resume_infos_path, class: "nav-link" %>
+          </li>
 
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <%= link_to 'List Users', users_path, class: "dropdown-item" %>
-            </li>
-<!--            <li>-->
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Users
+            </a>
+
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to 'List Users', users_path, class: "dropdown-item" %>
+              </li>
+              <!--            <li>-->
               <%#= link_to 'Create User', new_user_registration_path, class: "dropdown-item" %>
-<!--            </li>-->
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <%= link_to 'Your Profile', user_path(current_user), class: "dropdown-item" if current_user %>
-            </li>
-          </ul>
-        </li>
+              <!--            </li>-->
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <%= link_to 'Your Profile', user_path(current_user), class: "dropdown-item" if current_user %>
+              </li>
+            </ul>
+          </li>
 
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Social Networks
-          </a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Social Networks
+            </a>
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <%= link_to 'List Social Networks', social_networks_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to 'Create Social Network', new_social_network_path, class: "dropdown-item" %>
-            </li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to 'List Social Networks', social_networks_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to 'Create Social Network', new_social_network_path, class: "dropdown-item" %>
+              </li>
 
-          </ul>
-        </li>
+            </ul>
+          </li>
 
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Languages
-          </a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Languages
+            </a>
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <%= link_to 'List Languages', languages_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to 'Create Languages', new_language_path, class: "dropdown-item" %>
-            </li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to 'List Languages', languages_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to 'Create Languages', new_language_path, class: "dropdown-item" %>
+              </li>
 
-          </ul>
+            </ul>
 
-        </li>
+          </li>
 
-        <!--        <li class="nav-item">-->
-        <!--          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
-        <!--        </li>-->
+          <!--        <li class="nav-item">-->
+          <!--          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+          <!--        </li>-->
 
-      </ul>
+        </ul>
 
-      <!--      <form class="d-flex">-->
-      <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-      <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-      <!--      </form>-->
+        <!--      <form class="d-flex">-->
+        <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+        <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+        <!--      </form>-->
+    <% end %>
+    <% if current_user %>
+      <%= button_to(
+            "Logout",
+            destroy_user_session_path,
+            method: :delete, class: 'btn btn-lg btn-danger', title: 'Logout'
+          ) %>
 
-      <% if current_user %>
-        <%= button_to(
-              "Logout",
-              destroy_user_session_path,
-              method: :get, class: 'btn btn-lg btn-danger', title: 'Logout'
-            ) %>
-      <% else %>
-        <%= button_to(
-              "Login",
-              new_user_session_path,
-              method: :get, class: 'btn btn-lg btn-primary', title: 'Login'
-            ) %>
-      <% end %>
+    <% else %>
+      <%= button_to(
+            "Login",
+            new_user_session_path,
+            method: :get, class: 'btn btn-lg btn-primary', title: 'Login'
+          ) %>
+    <% end %>
 
     </div>
   </div>

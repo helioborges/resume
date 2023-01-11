@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_234758) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_11_023623) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_234758) do
   end
 
   create_table "resume_educations", force: :cascade do |t|
-    t.integer "resume_info_id", null: false
+    t.bigint "resume_info_id", null: false
     t.integer "year_start"
     t.integer "year_end"
     t.string "title"
@@ -74,12 +77,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_234758) do
     t.string "email_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "resume_info_id", null: false
+    t.bigint "resume_info_id", null: false
     t.index ["resume_info_id"], name: "index_resume_emails_on_resume_info_id"
   end
 
   create_table "resume_experiences", force: :cascade do |t|
-    t.integer "resume_info_id", null: false
+    t.bigint "resume_info_id", null: false
     t.integer "year_start"
     t.integer "year_end"
     t.string "title"
@@ -92,15 +95,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_234758) do
     t.index ["resume_info_id"], name: "index_resume_experiences_on_resume_info_id"
   end
 
-# Could not dump table "resume_infos" because of following StandardError
-#   Unknown type 'attachment' for column 'file_cv'
+  create_table "resume_infos", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "about"
+    t.text "looking"
+    t.date "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "location"
+    t.string "time_zone"
+    t.string "schedule"
+    t.binary "file_cv"
+    t.binary "picture"
+  end
 
   create_table "resume_languages", force: :cascade do |t|
-    t.integer "language_id", null: false
+    t.bigint "language_id", null: false
     t.string "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "resume_info_id", null: false
+    t.bigint "resume_info_id", null: false
     t.index ["language_id"], name: "index_resume_languages_on_language_id"
     t.index ["resume_info_id"], name: "index_resume_languages_on_resume_info_id"
   end
@@ -112,12 +127,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_234758) do
     t.string "phone_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "resume_info_id", null: false
+    t.bigint "resume_info_id", null: false
     t.index ["resume_info_id"], name: "index_resume_phones_on_resume_info_id"
   end
 
   create_table "resume_skills", force: :cascade do |t|
-    t.integer "resume_info_id", null: false
+    t.bigint "resume_info_id", null: false
     t.string "name"
     t.text "description"
     t.integer "level"
@@ -127,8 +142,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_234758) do
     t.index ["resume_info_id"], name: "index_resume_skills_on_resume_info_id"
   end
 
-# Could not dump table "resume_social_networks" because of following StandardError
-#   Unknown type 'attachment' for column 'picture'
+  create_table "resume_social_networks", force: :cascade do |t|
+    t.string "url"
+    t.boolean "show"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "social_network_id", null: false
+    t.bigint "resume_info_id", null: false
+    t.index ["resume_info_id"], name: "index_resume_social_networks_on_resume_info_id"
+    t.index ["social_network_id"], name: "index_resume_social_networks_on_social_network_id"
+  end
 
   create_table "social_networks", force: :cascade do |t|
     t.string "name"
@@ -151,6 +174,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_234758) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
