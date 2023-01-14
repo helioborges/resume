@@ -22,7 +22,7 @@
 
                   <% if resume_phone.whatsapp %>
 
-                    <%= link_to international_phone_number(resume_phone.phone_number), "https://api.whatsapp.com/send?l=pt_BR&phone=#{resume_phone.phone_number}", target: "_blank" %>
+                    <%= link_to international_phone_number(resume_phone.phone_number), "https://api.whatsapp.com/send?l=pt_BR&phone=#{resume_phone.phone_number}", target: "_blank", style: 'text-decoration: underline;' %>
                     <%= link_to "https://api.whatsapp.com/send?l=pt_BR&phone=#{resume_phone.phone_number}", target: "_blank", class: "bg-icon-ball-small bg-whatsapp" do %>
                     <%= icon('fa-brands', "whatsapp") %>
                   <% end %>
