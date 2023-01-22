@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe ResumeInfo, type: :model do
 
   describe 'validations' do
-
     it "is valid with valid attributes" do
       resume = build(:resume_info)
       expect(resume).to be_valid
