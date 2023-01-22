@@ -1,5 +1,4 @@
 class ResumeEducation < ApplicationRecord
-
   belongs_to :resume_info
   validates_presence_of :resume_info_id
 
