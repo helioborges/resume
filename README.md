@@ -1,4 +1,5 @@
 # README
+Example App: https://resume-w4vt.onrender.com/ (it takes a few minutes for the host to start the app)
 
 Basic Resume App with Devise/Login
 
@@ -9,6 +10,8 @@ bootstrap and fontawesome
 active_storage (local) for uploads
 
 It's configured to work with 'render.com' deployment
+
+Few tests already done, more incoming. 
 
 
 # Requirements: 
@@ -46,5 +49,7 @@ and include your e-mail information:
   domain: yourhost.com
   address: smtpi.yourhost.com
 ```
+
+You can edit /bin/render-build.sh for render.com deploy configuration (You need to setup your database config variables for this)
 
 You can create your user, that is automatically an admin, to edit/create records
