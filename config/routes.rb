@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :resume_infos
   get 'admin/dashboard'
+  get 'warning' => 'static_pages#warning'
 
   resources :languages
   resources :social_networks

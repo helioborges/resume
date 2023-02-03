@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
 
   def dashboard
   end
+
+  def warning
+    # @resume_info = ResumeInfo.new
+  end
 end

@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   layout 'application'
+  before_action :check_resume_info
+
+  def check_resume_info
+    redirect_to warning_path unless @resume_info
+  end
 
   def index
     @contact ||= ContactMessage.new

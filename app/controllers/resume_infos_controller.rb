@@ -1,5 +1,5 @@
 class ResumeInfosController < ApplicationController
-  before_action :set_resume_info, only: %i[ show edit update destroy ]
+  before_action :set_resume_info, only: %i[ show edit new create update destroy ]
   before_action :check_admin
   # GET /resume_infos or /resume_infos.json
   def index
@@ -70,7 +70,7 @@ class ResumeInfosController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_resume_info
-    @resume_info = ResumeInfo.find(params[:id])
+    @resume_info = ResumeInfo.find(params[:id]) if params && params[:id]
     @social_networks = SocialNetwork.all
   end
 
