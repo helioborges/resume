@@ -1,10 +1,14 @@
 <div class="zoo-profile-main">
   <div class="zoo-profile-main-pic">
-    <%= image_tag @resume_info.picture, class: "rounded-circle" if @resume_info and  !@resume_info.picture.blank? %>
+    <% if @resume_info and !@resume_info.picture.blank? %>
+      <%= image_tag @resume_info.picture, class: "rounded-circle" %>
+    <% else %>
+      <%= image_tag 'portfolio/avatar.jpeg', class: "rounded-circle" %>
+    <% end %>
   </div>
 
   <div class="zoo-profile_user-detail">
-    <h3 class="zoo-user-name"><%=  @resume ? @resume_info.name : 'Create Resume Info' %></h3>
+    <h3 class="zoo-user-name"><%= @resume ? @resume_info.name : 'Create Resume Info' %></h3>
     <!--              <p class="cd-headline loading-bar">-->
     <div class=" ">
       <p><%= @resume_info ? @resume_info.description : 'Create Resume Info' %> </p>

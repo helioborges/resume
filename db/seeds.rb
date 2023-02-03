@@ -12,16 +12,6 @@ User.create!([
                { id: 1, name: "Admin User", email: "youremail@email.com", password: 'resumeadmin123', encrypted_password: "$2a$12$H8mhFgIRXcmcMDd0vqdP/Oc7fqnOUqxXoL8wu10nzUX3xr3tumHvi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: "2023-01-19 03:09:12", sign_in_count: 2, current_sign_in_at: "2023-01-25 05:06:19", last_sign_in_at: "2023-01-19 03:09:13", current_sign_in_ip: "172.71.10.107", last_sign_in_ip: "127.0.0.1", admin: true, created_at: "2023-01-19 03:08:17", updated_at: "2023-01-25 05:06:19" }
              ])
 
-ActiveStorage::Blob.create!([
-                              { id: 2, key: "3nuzlphsz58gk74ihw067fiatf68", filename: "Curriculum Vitae HELIO BORGES.pdf", content_type: "application/pdf", metadata: { "identified" => true, "analyzed" => true }, service_name: "local", byte_size: 78162, checksum: "Ej57Ug8RiEPQWlNY6ae80Q==", created_at: "2023-02-03 18:01:18" },
-                              { id: 3, key: "mq83cf4uyicdrifiniappy09gouy", filename: "1672091384795.jpeg", content_type: "image/jpeg", metadata: { "identified" => true, "analyzed" => true }, service_name: "local", byte_size: 10848, checksum: "7tXDuDNfRXu91msV1ftNlg==", created_at: "2023-02-03 18:01:18" }
-                            ])
-
-ActiveStorage::Attachment.create!([
-                                    { id: 2, name: "file_cv", record_type: "ResumeInfo", record_id: 1, blob_id: 2, created_at: "2023-02-03 18:01:18" },
-                                    { id: 3, name: "picture", record_type: "ResumeInfo", record_id: 1, blob_id: 3, created_at: "2023-02-03 18:01:18" }
-                                  ])
-
 Language.create!([
                    { id: 5, name: "Brazilian Portuguese", icon: "🇧🇷", created_at: "2023-01-06 15:37:45", updated_at: "2023-01-06 15:37:45" },
                    { id: 6, name: "Portuguese", icon: "🇵🇹", created_at: "2023-01-06 15:37:45", updated_at: "2023-01-06 15:37:45" },

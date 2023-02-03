@@ -46,7 +46,11 @@
     </p>
   <% end %>
 
-  <%= link_to 'Download CV', @resume_info.file_cv, target: '_blank', class: "btn btn-sm btn-soft-primary" if @resume_info&.file_cv&.attached? %>
+  <% if @resume_info&.file_cv&.attached? %>
+    <%= link_to 'Download CV', @resume_info.file_cv, target: '_blank', class: "btn btn-sm btn-soft-primary" %>
+  <% else %>
+    <%= link_to 'Download CV', 'CV Helio Borges.pdf', target: '_blank', class: "btn btn-sm btn-soft-primary" %>
+  <% end %>
 
 
 </div><!--end col-->
