@@ -35,3 +35,4 @@ ls app/assets/builds
 #bundle exec rake assets:clean
 #bundle exec rake db:migrate
 #bundle exec rake db:seed
+rails db:seed:replant
