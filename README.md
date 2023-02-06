@@ -1,15 +1,19 @@
 # README
-Example App: https://resume-w4vt.onrender.com/ (it takes a few minutes for the host to start the app)
+Example App: https://resume-w4vt.onrender.com/ (it takes a few minutes for the host to start the app).
 
-Basic Resume App with Devise/Login
+Everytime it starts, it reseeds the database, so you can change anything you want there.
 
-simple_form with nested attributes
+# RESUME APP
 
-bootstrap and fontawesome 
+Basic Resume App with Devise/Login.
 
-active_storage (local) for uploads
+simple_form with nested attributes.
 
-It's configured to work with 'render.com' deployment
+bootstrap and fontawesome.
+
+active_storage (local) for uploads.
+
+It's configured to work with 'render.com' deployment.
 
 Few tests already done, more incoming. 
 
@@ -32,7 +36,7 @@ rake db:seed
 rails server
 ```
 
-* Check seeds.rb to select what stuff you want to initially seed. It creates the basic resume profile and admin user.
+* Check seeds.rb to select what stuff you want to initially seed.
 
 
 * You can also change the credentials by typing:  
@@ -50,6 +54,10 @@ and include your e-mail information:
   address: smtpi.yourhost.com
 ```
 
-You can edit /bin/render-build.sh for render.com deploy configuration (You need to setup your database config variables for this)
+* You can edit /bin/render-build.sh for render.com deploy configuration (You need to setup your database config variables for this).
 
-You can create your user, that is automatically an admin, to edit/create records
+Default Login Credentials:
+```
+email = 'youremail@email.com'
+password = 'resumeadmin123'
+```
